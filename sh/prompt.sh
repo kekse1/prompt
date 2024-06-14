@@ -1,6 +1,6 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-# https://kekse.biz/ https://github.com/kekse1/scripts/
+# https://kekse.biz/ https://github.com/kekse1/prompt/
 # v2.1.2
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
