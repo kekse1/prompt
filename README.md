@@ -1,7 +1,7 @@
 <img src="https://kekse.biz/github.php?draw&override=github:prompt" />
 
 # My notorious **`$PS1`** prompt
-By using the `$PROMPT_COMMAND` variable, this script dynamically created the `$PS1` prompt.
+By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the **`$PS1` prompt**.
 
 * [Version **v2.1.3**](sh/prompt.sh) (updated **2024-06-14**)
 
