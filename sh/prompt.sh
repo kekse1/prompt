@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.1.2
+# v2.1.3
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -13,13 +13,14 @@
 
 #
 _TERMUX=0
+_ANSI=1
 _MULTI_LINE=1
 _SLASHES=4
 _REST_STRING="..."
 _WITH_FILES=1
 _WITH_HOSTNAME=1
 _WITH_USERNAME=1
-_WITH_LOAD_AVG=1
+_WITH_LOAD=1
 _WITH_DATE=1
 _DATE_FORMAT_ONE='%H:%M:%S'
 _DATE_FORMAT_TWO='%j'
@@ -30,7 +31,7 @@ if [[ $_TERMUX -ne 0 ]]; then
 	_WITH_DATE=0
 	_WITH_HOSTNAME=0
 	_WITH_USERNAME=0
-	_WITH_LOAD_AVG=0
+	_WITH_LOAD=0
 	#_WITH_FILES=0
 fi
 
@@ -43,22 +44,22 @@ ps1Prompt()
 	#
 	startFG()
 	{
-		PS1="$PS1"'\[\033[38;2;'"$1;$2;$3"'m\]'
+		[[ $_ANSI -ne 0 ]] && PS1="$PS1"'\[\033[38;2;'"$1;$2;$3"'m\]'
 	}
 
 	startBG()
 	{
-		PS1="$PS1"'\[\033[48;2;'"$1;$2;$3"'m\]'
+		[[ $_ANSI -ne 0 ]] && PS1="$PS1"'\[\033[48;2;'"$1;$2;$3"'m\]'
 	}
 
 	startBold()
 	{
-		PS1="$PS1"'\[\033[1m\]'
+		[[ $_ANSI -ne 0 ]] && PS1="$PS1"'\[\033[1m\]'
 	}
 
 	ansiReset()
 	{
-		PS1="$PS1"'\[\033[m\]'
+		[[ $_ANSI -ne 0 ]] && PS1="$PS1"'\[\033[m\]'
 	}
 
 	write()
@@ -174,7 +175,7 @@ ps1Prompt()
 	fi
 	
 	#
-	if [[ $_WITH_LOAD_AVG -ne 0 && -r /proc/loadavg ]]; then
+	if [[ $_WITH_LOAD -ne 0 && -r /proc/loadavg ]]; then
 		read one five fifteen rest </proc/loadavg
 		startFG 180 250 0
 		write "$one $five $fifteen "
