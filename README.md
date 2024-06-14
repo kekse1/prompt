@@ -34,12 +34,8 @@ The configuration is located on top of the file.
 | **`$_DATE_FORMAT_TWO`** | String  | `%j`       | Second `date` format; by default the number of current days in the year                                                        |
 
 ### Details
-It's also using **ANSI Escape Sequences** to colorize up the prompt!
-
-//**TODO**/describe more details, and more to the [implementation](#implementation) below..//
-
-### Implementation
-Some details to my implementation.
+It's also using **ANSI Escape Sequences** to colorize up the prompt (if you don't disable it via `$_ANSI`
+[configuration](#configuration) variable)#.
 
 #### `getBase()`
 It also has a `getBase()` function to reduce the amount of slash `/` separators in the directory depth..
