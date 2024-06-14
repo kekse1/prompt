@@ -3,11 +3,10 @@
 # My notorious **`$PS1`** prompt
 By using the `$PROMPT_COMMAND` variable, this script dynamically created the `$PS1` prompt.
 
+* [Version **v2.1.2**](sh/prompt.sh) (updated **2024-04-10**)
+
 ## Screenshot
 ![$PS1](img/screenshot.png)
-
-## **`prompt.sh`**
-* [Version **v2.1.2**](sh/prompt.sh) (updated **2024-04-10**)
 
 ### Installation
 Copy this file to `/etc/profile.d/[prompt.sh]`. This should `source` (`.`) it automatically.
