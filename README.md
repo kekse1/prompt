@@ -35,7 +35,7 @@ The configuration is located on top of the file.
 
 ### Details
 It's also using **ANSI Escape Sequences** to colorize up the prompt (if you don't disable it via `$_ANSI`
-[configuration](#configuration) variable)#.
+[configuration](#configuration) variable).
 
 #### `getBase()`
 It also has a `getBase()` function to reduce the amount of slash `/` separators in the directory depth..
