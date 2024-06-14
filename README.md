@@ -9,10 +9,11 @@ By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the
 ![$PS1](img/screenshot.png)
 
 ### Installation
-Copy this file to `/etc/profile.d/[prompt.sh]`. This should `source` (`.`) it automatically.
+Copy this file to the **`/etc/profile.d/`** directory. This should include it automatically
+when spawning a new shell etc. (via `source` or `.`).
 
-**If** it won't work, the reason could be other scripts or so: in this case you could find
-a solution via `grep -ri PS1`, e.g..
+**If** this won't work, the reason could be other scripts which overwrite the `$PS1` or so.
+In this case you could try to `grep -r PS1 /etc/` and fix it for yourself.
 
 ### Configuration
 The configuration is located on top of the file.
