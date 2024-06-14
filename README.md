@@ -16,7 +16,11 @@ when spawning a new shell etc. (via `source` or `.`).
 In this case you could try to `grep -r PS1 /etc/` and fix it for yourself.
 
 ### Configuration
-The configuration is located on top of the file.
+The configuration is located on top of the file (as simple variables, which will be enforced
+into your environments where you include this script).
+
+The `Boolean` types are just `Integer` values with either `0` as `false` or any other
+(like `1`) for `true`.
 
 | Variable name           | Type    | Default    | Description                                                                                                                    |
 | ----------------------: | ------: | :--------- | :----------------------------------------------------------------------------------------------------------------------------- |
