@@ -23,8 +23,8 @@ The configuration is located on top of the file.
 | **`$_TERMUX`**          | Boolean | 0          | Will enforce some settings to fit better to the [`Termux` Linux](https://termux.dev/) (for Android phones)                     |
 | **`$_ANSI`**            | Boolean | 1          | Here you could also disable all ANSI Escape Sequences (for colors and styles)                                                  |
 | **`$_MULTI_LINE`**      | Boolean | 1          | Looks better when using a two line prompt                                                                                      |
-| **`$_SLASHES`**         | Integer | 4          | The amount of directories to show in your current working directory.. see the [`getBase()`](#getBase) section                  |
-| **`$_REST_STRING`**     | String  | `...`      | Also for the [`getBase()`](#getBase) function: the cut off parts of your current working directory are replaced by this string |
+| **`$_SLASHES`**         | Integer | 4          | The amount of directories to show in your current working directory.. see the [`getBase()`](#getbase) section                  |
+| **`$_REST_STRING`**     | String  | `...`      | Also for the [`getBase()`](#getbase) function: the cut off parts of your current working directory are replaced by this string |
 | **`$_WITH_FILES`**      | Boolean | 1          | Will also show the amount of directories and regular files in the current working directory                                    |
 | **`$_WITH_HOSTNAME`**   | Boolean | 1          | Also show your machine's hostname (if set, directly at the username)                                                           |
 | **`$_WITH_USERNAME`**   | Boolean | 1          | Would also include your username in the output (if set, directly at the hostname)                                              |
