@@ -15,7 +15,12 @@ Copy this file to `/etc/profile.d/[prompt.sh]`. This should `source` (`.`) it au
 ### Configuration
 The configuration is located on top of the file.
 
+//**TODO**/ Explain all configuration variables!!
+
 ### Details
+//**TODO**/ Describe the available features!!
+
+### Implementation
 It also has a `getBase()` function to reduce the amount of slash `/` separators
 in the directory depth.. with a bit of intelligence.
 
@@ -24,3 +29,4 @@ The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
 and it's licensed under the [MIT](./LICENSE.txt) (also known as 'X' or 'X11' license).
 
 ![kekse.biz](favicon.png)
+
