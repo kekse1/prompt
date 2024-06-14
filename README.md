@@ -4,7 +4,7 @@
 By using the `$PROMPT_COMMAND` variable, this script dynamically created the `$PS1` prompt.
 
 ## Screenshot
-![$PS1](img/prompt.png)
+![$PS1](img/screenshot.png)
 
 ## **`prompt.sh`**
 * [Version **v2.1.2**](sh/prompt.sh) (updated **2024-04-10**)
