@@ -5,6 +5,9 @@ By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the
 
 * [Version **v2.1.4**](sh/prompt.sh) (updated **2024-07-12**)
 
+## News
+* \[**2024-07-12**\] New **v2.1.4**. The 'root' color has changed (so screenshot is slightly out-of-date);
+
 ## Screenshot
 ![$PS1](img/screenshot.png)
 
