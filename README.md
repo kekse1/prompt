@@ -3,7 +3,7 @@
 # My notorious **`$PS1`** prompt
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the **`$PS1` prompt**.
 
-* [Version **v2.1.3**](sh/prompt.sh) (updated **2024-06-14**)
+* [Version **v2.1.4**](sh/prompt.sh) (updated **2024-07-12**)
 
 ## Screenshot
 ![$PS1](img/screenshot.png)

@@ -1,14 +1,14 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.1.3
+# v2.1.4
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
 # BUT MAYBE other scripts or so override this `$PS1`
 # configuration ('/etc/profile', '/etc/bash.bashrc',
 # maybe '~/.bashrc' or '~/.profile') .. in this case
-# try to find and remove 'em, using `grep`. ok?
+# try to find and remove 'em, using `grep -r PS1` ..
 #
 
 #
@@ -139,9 +139,9 @@ ps1Prompt()
 	#
 	if [[ $_WITH_USERNAME -ne 0 ]]; then
 		if [[ `id -u` -eq 0 ]]; then
-			startBG 175 65 245
+			startBG 235 50 110
 		elif [[ `id -g` -eq 0 ]]; then
-			startFG 175 65 245
+			startFG 235 50 110
 		else
 			startFG 225 245 70
 		fi
