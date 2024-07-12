@@ -15,12 +15,17 @@ By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the
 Copy this file to the **`/etc/profile.d/`** directory. This should include it automatically
 when spawning a new shell etc. (via `source` or `.`).
 
-**If** this won't work, the reason could be other scripts which overwrite the `$PS1` or so.
-In this case you could try to `grep -r PS1 /etc/` and fix it for yourself.
+> [!IMPORTANT]
+> **If** this won't work, the reason could be other scripts which overwrite the `$PS1` or so.
+> In this case you could try to `grep -r PS1 /etc/` and fix it for yourself.
 
 ### Configuration
 The configuration is located on top of the file (as simple variables, which will be enforced
 into your environments where you include this script).
+
+> [!TIP]
+> To test various constellations, you could also just set 'em in your command line
+> (after `source`ing this script). This will have an instant effect.
 
 The `Boolean` types are just `Integer` values with either `0` as `false` or any other
 (like `1`) for `true`.
