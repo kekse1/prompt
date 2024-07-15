@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.1.4
+# v2.1.5
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -139,9 +139,9 @@ ps1Prompt()
 	#
 	if [[ $_WITH_USERNAME -ne 0 ]]; then
 		if [[ `id -u` -eq 0 ]]; then
-			startBG 235 50 110
+			startBG 200 20 20
 		elif [[ `id -g` -eq 0 ]]; then
-			startFG 235 50 110
+			startFG 200 20 20
 		else
 			startFG 225 245 70
 		fi
