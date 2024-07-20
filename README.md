@@ -11,6 +11,9 @@ By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the
 ## Screenshot
 ![$PS1](img/screenshot.png)
 
+### Explanation
+//**TODO**/.. for now, look at the [**Configuration**](#configuration) section.
+
 ### Installation
 Copy this file to the **`/etc/profile.d/`** directory. This should include it automatically
 when spawning a new shell etc. (via `source` or `.`).
