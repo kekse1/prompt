@@ -56,6 +56,9 @@ It's also using **ANSI Escape Sequences** to colorize up the prompt (if you don'
 It also has a `getBase()` function to reduce the amount of slash `/` separators in the directory depth..
 with a bit of intelligence. See also the [configuration](#configuration) variables [ `$_SLASHES`, `$_REST_STRING` ];
 
+# Contact
+<img src="https://kekse.biz/github.php?override=github:prompt&draw&text=prompt@kekse.biz&angle=6&size=38pt&fg=150,20,90&font=OpenSans&ro&readonly&h=64&v=16" />
+
 # Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
 and it's licensed under the [MIT](./LICENSE.txt) (also known as 'X' or 'X11' license).
