@@ -26,7 +26,7 @@ _DATE_FORMAT_ONE='%H:%M:%S'
 _DATE_FORMAT_TWO='%j'
 _TREE=1
 _TREE_LIST=1
-_TREE_LIST_SPACE="        "
+_TREE_LIST_SPACE="      "
 
 #
 if [[ $_TERMUX -ne 0 ]]; then
@@ -49,7 +49,7 @@ __TPUT=0; if [[ $_TREE -ne 0 ]]; then
 		[[ $? -eq 0 ]] && __TPUT=1
 	fi
 
-	[[ -z "$_TREE_LIST_SPACE" ]] && _TREE_LIST_SPACE="        "
+	[[ -z "$_TREE_LIST_SPACE" ]] && _TREE_LIST_SPACE="      "
 fi
 
 #
@@ -93,15 +93,15 @@ _tree()
 	for i in "${result[@]}"; do
 		if [[ $_width -gt 0 ]]; then
 			len=${#i}
-			if [[ $((${_current}+${len}+${_space})) -ge $_width ]]; then
+			if [[ $((${_current}+${len}+${_space}+2)) -ge $_width ]]; then
 				_current=0
 				echo
 			fi
 
-			let _current=$_current+$len+$_space
+			let _current=$_current+$len+$_space+2
 		fi
 
-		echo -n "${_TREE_LIST_SPACE}${i}"
+		echo -n "${_TREE_LIST_SPACE}\`${i}\`"
 	done; echo
 }
 
