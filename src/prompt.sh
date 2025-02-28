@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.2.1
+# v2.2.2
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -201,9 +201,10 @@ ps1Prompt()
 	PS1=""
 
 	#
-	__with_tree=0
+	jc=`jobs -p | wc -l`
+
+	#
 	if [[ $_TREE -ne 0 && $_last_directory != "`pwd`" ]]; then
-		__with_tree=1
 		_tree
 	fi
 
@@ -288,7 +289,6 @@ ps1Prompt()
 	ansiReset
 
 	#
-	jc=`jobs -p | wc -l`; [[ $__with_tree -ne 0 ]] && let jc=$jc-1
 	if [[ $jc -gt 0 ]]; then
 		write ' '
 		startBG 140 30 140

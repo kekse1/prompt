@@ -3,10 +3,10 @@
 # My notorious **`$PS1`** prompt
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the **`$PS1` prompt**.
 
-* [Version v**2.2.1**](src/prompt.sh) (updated **2025-02-28**)
+* [Version v**2.2.2**](src/prompt.sh) (updated **2025-02-28**)
 
 ## News
-* \[**2025-02-28**\] Update to v**2.2.1**: including `tree` output **if `$PWD` changed** (see `$_TREE` [config](#configuration), on top);
+* \[**2025-02-28**\] Update to v**2.2.2**: including `tree` output **if `$PWD` changed** (see `$_TREE` [config](#configuration), on top);
 * \[**2024-07-12**\] New v**2.1.5**. Both 'root' colors (UID+GID) have changed (so screenshot is slightly out-of-date);
 
 ## Screenshot
