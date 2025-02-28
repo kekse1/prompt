@@ -24,7 +24,7 @@ _WITH_LOAD=1
 _WITH_DATE=1
 _DATE_FORMAT_ONE='%H:%M:%S'
 _DATE_FORMAT_TWO='%j'
-_TREE=1
+_TREE=0
 
 #
 if [[ $_TERMUX -ne 0 ]]; then
