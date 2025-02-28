@@ -143,7 +143,7 @@ ps1Prompt()
 	__with_tree=0
 	if [[ $_TREE -ne 0 && $_last_directory != "`pwd`" ]]; then
 		__with_tree=1
-		tree -d -L1 --noreport
+		tree -d -L 1 --noreport
 	fi
 
 	#
