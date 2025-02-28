@@ -26,6 +26,7 @@ _DATE_FORMAT_ONE='%H:%M:%S'
 _DATE_FORMAT_TWO='%j'
 _TREE=1
 _TREE_LIST=1
+_TREE_LIST_AUTO=10
 _TREE_LIST_SPACE="    # "
 
 #
@@ -66,13 +67,41 @@ __width()
 	fi
 
 	echo $result
+	[[ $result -le 0 ]] && return 1
 }
+
+__height()
+{
+	result=0
+
+	if [[ -n "$LINES" ]]; then
+		result=$LINES
+	elif [[ $__TPUT -ne 0 ]]; then
+		result=$(tput lines)
+	fi
+
+	echo $result
+	[[ $result -le 0 ]] && return 1
 
 _tree()
 {
-	if [[ $_TREE_LIST -eq 0 ]]; then
-		tree -d -L 1 --noreport
-		return
+	_height=`__height`
+
+	if [[ $_TREE_LIST -eq 0 || $_TREE_LIST_AUTO -gt 0 ]]; then
+		_tree="$(tree -d -L 1 --noreport)"
+		_skip=0
+		_l="$(echo "$_tree" | wc -l)"
+
+		[[ $_l -le 1 ]] && return 1
+
+		if [[ $_TREE_LIST_AUTO -gt 0 && $_width -gt 0 ]]; then
+			[[ $((${_height}-${_l})) -lt $_TREE_LIST_AUTO ]] && _skip=1
+		fi
+		
+		if [[ $_skip -eq 0 ]]; then
+			echo "$_tree"
+			return
+		fi
 	fi
 
 	IFS=$'\n' list=( $(find -maxdepth 1 -type d) )
