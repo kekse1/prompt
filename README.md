@@ -36,6 +36,7 @@ The `Boolean` types are just `Integer` values with either `0` as `false` or any 
 
 | Variable name           | Type    | Default    | Description                                                                                                                    |
 | ----------------------: | ------: | :--------- | :----------------------------------------------------------------------------------------------------------------------------- |
+| **`$_TREE`**            | Boolean / 1          / Will also write `tree` output **on directory change**(!)                                                                       |
 | **`$_TERMUX`**          | Boolean | 0          | Will enforce some settings to fit better to the [`Termux` Linux](https://termux.dev/) (for Android phones)                     |
 | **`$_ANSI`**            | Boolean | 1          | Here you could also disable all ANSI Escape Sequences (for colors and styles)                                                  |
 | **`$_MULTI_LINE`**      | Boolean | 1          | Looks better when using a two line prompt                                                                                      |
