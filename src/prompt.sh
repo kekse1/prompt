@@ -24,7 +24,7 @@ _WITH_LOAD=1
 _WITH_DATE=1
 _DATE_FORMAT_ONE='%H:%M:%S'
 _DATE_FORMAT_TWO='%j'
-_TREE=0
+_TREE=1
 
 #
 if [[ $_TERMUX -ne 0 ]]; then
@@ -35,6 +35,14 @@ if [[ $_TERMUX -ne 0 ]]; then
 	_WITH_LOAD=0
 	#_WITH_FILES=0
 fi
+
+if [[ $_TREE -ne 0 ]]; then
+	which tree >/dev/null 2>&1
+	[[ $? -ne 0 ]] && _TREE=0
+fi
+
+#
+_last_directory="`pwd`"
 
 #
 ps1Prompt()
@@ -132,7 +140,11 @@ ps1Prompt()
 	PS1=""
 
 	#
-	[[ $_TREE -ne 0 ]] && tree -d -L1 --noreport
+	__with_tree=0
+	if [[ $_TREE -ne 0 && $_last_directory != "`pwd`" ]]; then
+		__with_tree=1
+		tree -d -L1 --noreport
+	fi
 
 	#
 	startFG 180 115 25
@@ -215,8 +227,7 @@ ps1Prompt()
 	ansiReset
 
 	#
-	jc=`jobs -p | wc -l`
-	[[ $_TREE -ne 0 ]] && let jc=$jc-1
+	jc=`jobs -p | wc -l`; [[ $__with_tree -ne 0 ]] && let jc=$jc-1
 	if [[ $jc -gt 0 ]]; then
 		write ' '
 		startBG 140 30 140
@@ -234,6 +245,7 @@ ps1Prompt()
 	write ' '
 
 	#
+	_last_directory="`pwd`"
 	export PS1
 }
 

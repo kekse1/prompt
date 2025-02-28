@@ -6,7 +6,7 @@ By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the
 * [Version v**2.2.0**](src/prompt.sh) (updated **2025-02-28**)
 
 ## News
-* \[**2025-02-28**\] Update to v**2.2.0**: including `tree` output (optional, **disabled** by default);
+* \[**2025-02-28**\] Update to v**2.2.0**: including `tree` output **if `$PWD` changed** (see `$_TREE` config, on top);
 * \[**2024-07-12**\] New v**2.1.5**. Both 'root' colors (UID+GID) have changed (so screenshot is slightly out-of-date);
 
 ## Screenshot
