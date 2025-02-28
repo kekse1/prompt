@@ -24,7 +24,7 @@ _WITH_LOAD=1
 _WITH_DATE=1
 _DATE_FORMAT_ONE='%H:%M:%S'
 _DATE_FORMAT_TWO='%j'
-_TREE=0
+_TREE=1
 
 #
 if [[ $_TERMUX -ne 0 ]]; then
@@ -216,6 +216,7 @@ ps1Prompt()
 
 	#
 	jc=`jobs -p | wc -l`
+	[[ $_TREE -ne 0 ]] && let jc=$jc-1
 	if [[ $jc -gt 0 ]]; then
 		write ' '
 		startBG 140 30 140
