@@ -3,10 +3,10 @@
 # My notorious **`$PS1`** prompt
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the **`$PS1` prompt**.
 
-* [Version v**2.2.0**](src/prompt.sh) (updated **2025-02-28**)
+* [Version v**2.2.1**](src/prompt.sh) (updated **2025-02-28**)
 
 ## News
-* \[**2025-02-28**\] Update to v**2.2.0**: including `tree` output **if `$PWD` changed** (see `$_TREE` [config](#configuration), on top);
+* \[**2025-02-28**\] Update to v**2.2.1**: including `tree` output **if `$PWD` changed** (see `$_TREE` [config](#configuration), on top);
 * \[**2024-07-12**\] New v**2.1.5**. Both 'root' colors (UID+GID) have changed (so screenshot is slightly out-of-date);
 
 ## Screenshot
@@ -37,6 +37,8 @@ The `Boolean` types are just `Integer` values with either `0` as `false` or any 
 | Variable name           | Type    | Default    | Description                                                                                                                    |
 | ----------------------: | ------: | :--------- | :----------------------------------------------------------------------------------------------------------------------------- |
 | **`$_TREE`**            | Boolean | 1          | Will also write `tree` output **on directory change**(!)                                                                       |
+| **`$_TREE_LIST`**       | Boolean | 1          | Use internal/own function for the directory listing (saves output lines, etc.)                                                 |
+| **`$_TREE_LIST_SPACE`** | String  | `        ` | Space String for my own directory listing function                                                                              |
 | **`$_TERMUX`**          | Boolean | 0          | Will enforce some settings to fit better to the [`Termux` Linux](https://termux.dev/) (for Android phones)                     |
 | **`$_ANSI`**            | Boolean | 1          | Here you could also disable all ANSI Escape Sequences (for colors and styles)                                                  |
 | **`$_MULTI_LINE`**      | Boolean | 1          | Looks better when using a two line prompt                                                                                      |

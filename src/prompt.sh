@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.2.0
+# v2.2.1
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -25,6 +25,8 @@ _WITH_DATE=1
 _DATE_FORMAT_ONE='%H:%M:%S'
 _DATE_FORMAT_TWO='%j'
 _TREE=1
+_TREE_LIST=1
+_TREE_LIST_SPACE="        "
 
 #
 if [[ $_TERMUX -ne 0 ]]; then
@@ -36,13 +38,72 @@ if [[ $_TERMUX -ne 0 ]]; then
 	#_WITH_FILES=0
 fi
 
-if [[ $_TREE -ne 0 ]]; then
-	which tree >/dev/null 2>&1
-	[[ $? -ne 0 ]] && _TREE=0
+__TPUT=0; if [[ $_TREE -ne 0 ]]; then
+	if [[ $_TREE_LIST -eq 0 ]]; then
+		which tree >/dev/null 2>&1
+		[[ $? -ne 0 ]] && _TREE_LIST=1
+	fi
+
+	if [[ $_TREE_LIST -ne 0 ]]; then
+		which tput >/dev/null 2>&1
+		[[ $? -eq 0 ]] && __TPUT=1
+	fi
+
+	[[ -z "$_TREE_LIST_SPACE" ]] && _TREE_LIST_SPACE="        "
 fi
 
 #
 _last_directory="`pwd`"
+
+__width()
+{
+	result=0
+
+	if [[ -n "$COLUMNS" ]]; then
+		result=$COLUMNS
+	elif [[ $__TPUT -ne 0 ]]; then
+		result=$(tput cols)
+	fi
+
+	echo $result
+}
+
+_tree()
+{
+	if [[ $_TREE_LIST -eq 0 ]]; then
+		tree -d -L 1 --noreport
+		return
+	fi
+
+	IFS=$'\n' list=( $(find -maxdepth 1 -type d) )
+	result=()
+
+	for i in "${list[@]}"; do
+		i="${i:2}"
+		[[ "${i::1}" == "." || "$i" == "" ]] && continue
+		result+=( "$i" )
+	done
+
+	[[ ${#result[@]} -eq 0 ]] && return 1
+
+	_width=`__width`
+	_current=0
+	_space=${#_TREE_LIST_SPACE}
+
+	for i in "${result[@]}"; do
+		if [[ $_width -gt 0 ]]; then
+			len=${#i}
+			if [[ $((${_current}+${len}+${_space})) -ge $_width ]]; then
+				_current=0
+				echo
+			fi
+
+			let _current=$_current+$len+$_space
+		fi
+
+		echo -n "${_TREE_LIST_SPACE}${i}"
+	done; echo
+}
 
 #
 ps1Prompt()
@@ -143,7 +204,7 @@ ps1Prompt()
 	__with_tree=0
 	if [[ $_TREE -ne 0 && $_last_directory != "`pwd`" ]]; then
 		__with_tree=1
-		tree -d -L 1 --noreport
+		_tree
 	fi
 
 	#
