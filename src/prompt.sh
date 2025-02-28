@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.1.5
+# v2.2.0
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -24,6 +24,7 @@ _WITH_LOAD=1
 _WITH_DATE=1
 _DATE_FORMAT_ONE='%H:%M:%S'
 _DATE_FORMAT_TWO='%j'
+_TREE=0
 
 #
 if [[ $_TERMUX -ne 0 ]]; then
@@ -129,6 +130,9 @@ ps1Prompt()
 
 	#
 	PS1=""
+
+	#
+	[[ $_TREE -ne 0 ]] && tree -d -L1 --noreport
 
 	#
 	startFG 180 115 25
