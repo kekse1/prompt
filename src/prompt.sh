@@ -93,15 +93,15 @@ _tree()
 	for i in "${result[@]}"; do
 		if [[ $_width -gt 0 ]]; then
 			len=${#i}
-			if [[ $((${_current}+${len}+${_space}+2)) -ge $_width ]]; then
+			if [[ $((${_current}+${len}+${_space})) -ge $_width ]]; then
 				_current=0
 				echo
 			fi
 
-			let _current=$_current+$len+$_space+2
+			let _current=$_current+$len+$_space
 		fi
 
-		echo -n "${_TREE_LIST_SPACE}\`${i}\`"
+		echo -n "${_TREE_LIST_SPACE}${i}"
 	done; echo
 }
 
