@@ -15,7 +15,8 @@ By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the
 
 > [!NOTE]
 > Screenshot is slightly out-of-date: changed some colors and two new features added.
-> See the [configuration](#configuration) too see all available features.
+> See the [configuration](#configuration) too see all available features. And the
+> config/variable naming scheme has changed, too.
 
 ### Installation
 Copy this file to the **`/etc/profile.d/`** directory. This should include it automatically
