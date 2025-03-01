@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.3.0
+# v2.4.0
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -25,6 +25,7 @@ _WITH_DATE=1
 _DATE_FORMAT_ONE='%H:%M:%S'
 _DATE_FORMAT_TWO='%j'
 _LIST=1
+_TTY=1
 
 #
 alias _list="ls"
@@ -191,6 +192,13 @@ ps1Prompt()
 	fi
 
 	[[ $user_host -ne 0 ]] && write ' '
+
+	#
+	if [[ $_TTY -ne 0 ]]; then
+		startFG 110 160 190
+		write "`ps -p $$ -o tty=` "
+		ansiReset
+	fi
 	
 	#
 	if [[ $_WITH_DATE -ne 0 && -n "$_DATE_FORMAT_ONE" ]]; then
@@ -222,7 +230,7 @@ ps1Prompt()
 		write "$((`find -maxdepth 1 -type d | wc -l`-1)) "
 		ansiReset
 	fi
-	
+
 	#
 	[[ $_MULTI_LINE -ne 0 ]] && write "\n "
 	

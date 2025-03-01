@@ -3,17 +3,19 @@
 # My notorious **`$PS1`** prompt
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the **`$PS1` prompt**.
 
-* [Version v**2.3.0**](src/prompt.sh) (updated **2025-03-01**)
+* [Version v**2.4.0**](src/prompt.sh) (updated **2025-03-01**)
 
 ## News
+* \[**2025-03-01**\] Update to v**2.4.0**: new **`_TTY`** [configuration](#configuration);
 * \[**2025-03-01**\] Update to v**2.3.0**: including `ls` output **if `$PWD` changed** (see `$_LIST` [config](#configuration));
 * \[**2024-07-12**\] New v**2.1.5**. Both 'root' colors (UID+GID) have changed (so screenshot is slightly out-of-date);
 
 ## Screenshot
 ![$PS1](img/screenshot.png)
 
-### Explanation
-//**TODO**/.. for now, look at the [**Configuration**](#configuration) section.
+> [!NOTE]
+> Screenshot is slightly out-of-date: changed some colors and two new features added.
+> See the [configuration](#configuration) too see all available features.
 
 ### Installation
 Copy this file to the **`/etc/profile.d/`** directory. This should include it automatically
@@ -36,6 +38,7 @@ The `Boolean` types are just `Integer` values with either `0` as `false` or any 
 
 | Variable name           | Type    | Default    | Description                                                                                                                    |
 | ----------------------: | ------: | :--------- | :----------------------------------------------------------------------------------------------------------------------------- |
+| **`$_TTY`**             | Boolean | 1          | Includes the currently used **tty** in it's output                                                                             |
 | **`$_LIST`**            | Boolean | 1          | When directory changes(!), you'll get to see it's contents.                                                                    |
 | **`$_TERMUX`**          | Boolean | 0          | Will enforce some settings to fit better to the [`Termux` Linux](https://termux.dev/) (for Android phones)                     |
 | **`$_ANSI`**            | Boolean | 1          | Here you could also disable all ANSI Escape Sequences (for colors and styles)                                                  |
