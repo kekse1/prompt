@@ -44,19 +44,6 @@ fi
 #
 _last_directory="`pwd`"
 
-__width()
-{
-	result=0
-
-	if [[ -n "$COLUMNS" ]]; then
-		result=$COLUMNS
-	elif [[ $__TPUT -ne 0 ]]; then
-		result=$(tput cols)
-	fi
-
-	echo $result
-}
-
 #
 ps1Prompt()
 {
