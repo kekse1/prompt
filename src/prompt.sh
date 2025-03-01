@@ -17,11 +17,11 @@ _ANSI=1
 _MULTI_LINE=1
 _SLASHES=4
 _REST_STRING="..."
-_WITH_FILES=1
-_WITH_HOSTNAME=1
-_WITH_USERNAME=1
-_WITH_LOAD=1
-_WITH_DATE=1
+_COUNT=1
+_HOSTNAME=1
+_USERNAME=1
+_LOAD=1
+_DATE=1
 _DATE_FORMAT_ONE='%H:%M:%S'
 _DATE_FORMAT_TWO='%j'
 _LIST=1
@@ -34,11 +34,11 @@ alias _list="ls"
 #
 if [[ $_TERMUX -ne 0 ]]; then
 	_SLASHES=3
-	_WITH_DATE=1
-	_WITH_HOSTNAME=0
-	_WITH_USERNAME=0
-	_WITH_LOAD=0
-	#_WITH_FILES=0
+	_DATE=1
+	_HOSTNAME=0
+	_USERNAME=0
+	_LOAD=0
+	#_COUNT=0
 fi
 
 #
@@ -167,7 +167,7 @@ ps1Prompt()
 	user_host=0
 
 	#
-	if [[ $_WITH_USERNAME -ne 0 ]]; then
+	if [[ $_USERNAME -ne 0 ]]; then
 		if [[ `id -u` -eq 0 ]]; then
 			startBG 200 20 20
 		elif [[ `id -g` -eq 0 ]]; then
@@ -182,7 +182,7 @@ ps1Prompt()
 		user_host=1
 	fi
 
-	if [[ $_WITH_HOSTNAME -ne 0 ]]; then
+	if [[ $_HOSTNAME -ne 0 ]]; then
 		write '@'
 		startFG 245 195 65
 		#write "$HOSTNAME"
@@ -202,7 +202,7 @@ ps1Prompt()
 	fi
 	
 	#
-	if [[ $_WITH_DATE -ne 0 && -n "$_DATE_FORMAT_ONE" ]]; then
+	if [[ $_DATE -ne 0 && -n "$_DATE_FORMAT_ONE" ]]; then
 		startFG 110 200 255
 		write "`date +"$_DATE_FORMAT_ONE"` "
 		if [[ -n "$_DATE_FORMAT_TWO" ]]; then
@@ -213,7 +213,7 @@ ps1Prompt()
 	fi
 	
 	#
-	if [[ $_WITH_LOAD -ne 0 && -r /proc/loadavg ]]; then
+	if [[ $_LOAD -ne 0 && -r /proc/loadavg ]]; then
 		read one five fifteen rest </proc/loadavg
 		startFG 180 250 0
 		write "$one $five $fifteen "
@@ -221,7 +221,7 @@ ps1Prompt()
 	fi
 
 	#
-	if [[ $_WITH_FILES -ne 0 ]]; then
+	if [[ $_COUNT -ne 0 ]]; then
 		#
 		startFG 190 60 250
 		write "`find -maxdepth 1 -type f | wc -l`"

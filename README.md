@@ -45,13 +45,13 @@ The `Boolean` types are just `Integer` values with either `0` as `false` or any 
 | **`$_MULTI_LINE`**      | Boolean | 1          | Looks better when using a two line prompt                                                                                      |
 | **`$_SLASHES`**         | Integer | 4          | The amount of directories to show in your current working directory.. see the [`getBase()`](#getbase) section                  |
 | **`$_REST_STRING`**     | String  | `...`      | Also for the [`getBase()`](#getbase) function: the cut off parts of your current working directory are replaced by this string |
-| **`$_WITH_FILES`**      | Boolean | 1          | Will also show the amount of directories and regular files in the current working directory                                    |
-| **`$_WITH_HOSTNAME`**   | Boolean | 1          | Also show your machine's hostname (if set, directly at the username)                                                           |
-| **`$_WITH_USERNAME`**   | Boolean | 1          | Would also include your username in the output (if set, directly at the hostname)                                              |
-| **`$_WITH_LOAD`**       | Boolean | 1          | The load average (parsing the `/proc/loadavg`; if not readable or available, it'll be ignored)                                 |
-| **`$_WITH_DATE`**       | Boolean | 1          | Depends on the both variables below [ `$_DATE_FORMAT_ONE` and `$_DATE_FORMAT_TWO` ]                                            |
-| **`$_DATE_FORMAT_ONE`** | String  | `%H:%M:%S` | First `date` format; by default only the current time (the date in the `$_DATE_FORMAT_TWO`)                                    |
-| **`$_DATE_FORMAT_TWO`** | String  | `%j`       | Second `date` format; by default the number of current days in the year                                                        |
+| **`$_COUNT`**      | Boolean | 1               | Will also show the amount of directories and regular files in the current working directory                                    |
+| **`$_HOSTNAME`**   | Boolean | 1               | Also show your machine's hostname (if set, directly at the username)                                                           |
+| **`$_USERNAME`**   | Boolean | 1               | Would also include your username in the output (if set, directly at the hostname)                                             |
+| **`$_LOAD`**       | Boolean | 1               | The load average (parsing the `/proc/loadavg`; if not readable or available, it'll be ignored)                                |
+| **`$_DATE`**       | Boolean | 1               | Depends on the both variables below [ `$_DATE_FORMAT_ONE` and `$_DATE_FORMAT_TWO` ]                                           |
+| **`$_DATE_FORMAT_ONE`** | String  | `%H:%M:%S` | First `date` format; by default only the current time (the date in the `$_DATE_FORMAT_TWO`)                                   |
+| **`$_DATE_FORMAT_TWO`** | String  | `%j`       | Second `date` format; by default the number of current days in the year                                                       |
 
 ### Details
 It's also using **ANSI Escape Sequences** to colorize up the prompt (if you don't disable it via `$_ANSI`
