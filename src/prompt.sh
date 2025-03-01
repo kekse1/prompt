@@ -195,7 +195,8 @@ ps1Prompt()
 
 	#
 	if [[ $_TTY -ne 0 ]]; then
-		startFG 110 160 190
+		#startFG 110 160 190
+		startFG 110 180 60
 		write "`ps -p $$ -o tty=` "
 		ansiReset
 	fi
