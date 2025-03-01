@@ -39,6 +39,7 @@ if [[ $_TERMUX -ne 0 ]]; then
 	_USERNAME=0
 	_LOAD=0
 	#_COUNT=0
+	_TTY=0
 fi
 
 #
