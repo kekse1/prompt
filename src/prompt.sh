@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.5.0
+# v2.5.1
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -29,8 +29,8 @@ _TTY=1
 _CODE=1
 
 #
-alias _list="ls"
-#alias _list="ls -m"
+alias _LIST="ls -t --group-directories-first"
+#alias _LIST="ls -mt --group-directories-first"
 
 #
 if [[ $_TERMUX -ne 0 ]]; then
@@ -146,7 +146,7 @@ ps1Prompt()
 
 	#
 	if [[ $_LIST -ne 0 && $_last_directory != "`pwd`" ]]; then
-		_list
+		_LIST
 	fi
 
 	#
