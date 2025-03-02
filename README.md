@@ -6,17 +6,13 @@ By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the
 * [Version v**2.4.0**](src/prompt.sh) (updated **2025-03-01**)
 
 ## News
+* \[**2025-03-02**\] [Example Screenshot](#screenshot) is now **up-2-date** again!
 * \[**2025-03-01**\] Update to v**2.4.0**: new **`_TTY`** [configuration](#configuration);
 * \[**2025-03-01**\] Update to v**2.3.0**: including `ls` output **if `$PWD` changed** (see `$_LIST` [config](#configuration));
-* \[**2024-07-12**\] New v**2.1.5**. Both 'root' colors (UID+GID) have changed (so screenshot is slightly out-of-date);
+* \[**2024-07-12**\] New v**2.1.5**. Both 'root' colors (UID+GID) have changed;
 
 ## Screenshot
-![$PS1](img/screenshot.png)
-
-> [!NOTE]
-> Screenshot is slightly out-of-date: changed some colors and two new features added.
-> See the [configuration](#configuration) too see all available features. And the
-> config/variable naming scheme has changed, too.
+![$PS1](img/shot.png)
 
 ### Installation
 Copy this file to the **`/etc/profile.d/`** directory. This should include it automatically
