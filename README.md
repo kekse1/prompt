@@ -13,7 +13,7 @@ By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the
 * \[**2024-07-12**\] New v**2.1.5**. Both 'root' colors (UID+GID) have changed;
 
 ## Screenshot
-![$PS1](img/shot.png)
+![$PS1](img/screenshot.png)
 
 ### Installation
 Copy this file to the **`/etc/profile.d/`** directory. This should include it automatically
