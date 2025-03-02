@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.4.0
+# v2.5.0
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -26,6 +26,7 @@ _DATE_FORMAT_ONE='%H:%M:%S'
 _DATE_FORMAT_TWO='%j'
 _LIST=1
 _TTY=1
+_CODE=1
 
 #
 alias _list="ls"
@@ -141,7 +142,7 @@ ps1Prompt()
 	PS1=""
 
 	#
-	jc=`jobs -p | wc -l`
+	jobCount=`jobs -p | wc -l`
 
 	#
 	if [[ $_LIST -ne 0 && $_last_directory != "`pwd`" ]]; then
@@ -231,17 +232,24 @@ ps1Prompt()
 	else
 		startBG 210 45 25
 		startFG 255 255 255
-		write ' ✘ '
+
+		if [[ $_CODE -eq 0 ]]; then
+			write ' ✘ '
+		else
+			startBold
+			write " $ret "
+		fi
 	fi
 
 	ansiReset
 
 	#
-	if [[ $jc -gt 0 ]]; then
+	if [[ $jobCount -gt 0 ]]; then
 		write ' '
 		startBG 140 30 140
 		startFG 255 255 255
-		write " $jc "
+		startBold
+		write " $jobCount "
 		ansiReset
 	fi
 	

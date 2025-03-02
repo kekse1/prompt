@@ -3,9 +3,10 @@
 # My notorious **`$PS1`** prompt
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the **`$PS1` prompt**.
 
-* [Version v**2.4.0**](src/prompt.sh) (updated **2025-03-01**)
+* [Version v**2.5.0**](src/prompt.sh) (updated **2025-03-02**)
 
 ## News
+* \[**2025-03-02**\] Update to v**2.5.0**: new [config](#configuration) variable `$_CODE`!
 * \[**2025-03-02**\] [Example Screenshot](#screenshot) is now **up-2-date** again!
 * \[**2025-03-01**\] Update to v**2.4.0**: new **`_TTY`** [configuration](#configuration);
 * \[**2025-03-01**\] Update to v**2.3.0**: including `ls` output **if `$PWD` changed** (see `$_LIST` [config](#configuration));
@@ -35,6 +36,7 @@ The `Boolean` types are just `Integer` values with either `0` as `false` or any 
 
 | Variable name           | Type    | Default    | Description                                                                                                                    |
 | ----------------------: | ------: | :--------- | :----------------------------------------------------------------------------------------------------------------------------- |
+| **`$_CODE`**              Boolean | 1          | Instead of indicating errors (return values != 0) with an ✘, the real error code is being displayed.                           |
 | **`$_TTY`**             | Boolean | 1          | Includes the currently used **tty** in it's output                                                                             |
 | **`$_LIST`**            | Boolean | 1          | When directory changes(!), you'll get to see it's contents.                                                                    |
 | **`$_TERMUX`**          | Boolean | 0          | Will enforce some settings to fit better to the [`Termux` Linux](https://termux.dev/) (for Android phones)                     |
