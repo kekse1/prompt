@@ -32,7 +32,8 @@ _CODE=1
 _list()
 {
 	local _color="yes"; [[ $_ANSI -eq 0 ]] && _color="no"
-	echo; command ls -t --group-directories-first --color=${_color}
+	local data="$(command ls -t --group-directories-first --color=${_color})"
+	[[ ${#data} -gt 0 ]] && echo -e "\n${data}\n"
 }
 
 #
