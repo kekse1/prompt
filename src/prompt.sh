@@ -29,8 +29,8 @@ _TTY=1
 _CODE=1
 
 #
-alias _LIST="ls -t --group-directories-first"
-#alias _LIST="ls -mt --group-directories-first"
+alias _LIST="\ls -t --group-directories-first"
+#alias _LIST="\ls -mt --group-directories-first"
 
 #
 if [[ $_TERMUX -ne 0 ]]; then
