@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.5.1
+# v2.5.2
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -146,7 +146,7 @@ ps1Prompt()
 
 	#
 	if [[ $_LIST -ne 0 && $_last_directory != "`pwd`" ]]; then
-		_LIST
+		echo; _LIST
 	fi
 
 	#
