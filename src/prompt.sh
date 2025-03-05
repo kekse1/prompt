@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.5.2
+# v2.6.0
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -50,7 +50,7 @@ _last_directory="`pwd`"
 ps1Prompt()
 {
 	#
-	ret=$?
+	local ret=$?
 
 	#
 	startFG()
@@ -80,11 +80,11 @@ ps1Prompt()
 
 	getBase()
 	{
-		_depth=$1
+		local _depth=$1
 		shift
-		_dir="$*"
-		res=""
-		slashCount=0
+		local _dir="$*"
+		local res=""
+		local slashCount=0
 
 		if [[ ${_dir} == "/" ]]; then
 			write ' / '
@@ -95,7 +95,7 @@ ps1Prompt()
 			_dir="${_dir::-1}"
 		done
 
-		homeLen=${#HOME}
+		local homeLen=${#HOME}
 		
 		if [[ "$_dir" == "$HOME" ]]; then
 			_dir="~"
@@ -103,6 +103,7 @@ ps1Prompt()
 			_dir="~${_dir:$homeLen}"
 		fi
 
+		local i; local j; local inHome; local upper;
 		for (( i=${#_dir}-1; i >= 0; i-- )); do
 			if [[ ${_dir:$i:1} == "/" ]]; then
 				let slashCount=$slashCount+1
@@ -142,7 +143,7 @@ ps1Prompt()
 	PS1=""
 
 	#
-	jobCount=`jobs -p | wc -l`
+	local jobCount=`jobs -p | wc -l`
 
 	#
 	if [[ $_LIST -ne 0 && $_last_directory != "`pwd`" ]]; then
@@ -153,7 +154,7 @@ ps1Prompt()
 	startFG 180 115 25
 	write ' » '
 	ansiReset
-	user_host=0
+	local user_host=0
 
 	#
 	if [[ $_USERNAME -ne 0 ]]; then
@@ -203,6 +204,7 @@ ps1Prompt()
 	
 	#
 	if [[ $_LOAD -ne 0 && -r /proc/loadavg ]]; then
+		local one; local five; local fifteen; local rest;
 		read one five fifteen rest </proc/loadavg
 		startFG 180 250 0
 		write "$one $five $fifteen "
