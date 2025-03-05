@@ -3,10 +3,10 @@
 # My notorious **`$PS1`** prompt
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the **`$PS1` prompt**.
 
-* [Version v**2.6.0**](src/prompt.sh) (updated **2025-03-05**)
+* [Version v**2.6.1**](src/prompt.sh) (updated **2025-03-05**)
 
 ## News
-* \[**2025-03-05**\] v**2.6.0** w/ correct `local` everywhere; plus better listings
+* \[**2025-03-05**\] v**2.6.1** w/ correct `local` everywhere; plus better listings
 * \[**2025-03-03**\] Update to v**2.5.2**: new [config](#configuration) variable `$_CODE`!
 * \[**2025-03-02**\] [Example Screenshot](#screenshot) is now **up-2-date** again!
 * \[**2025-03-01**\] Update to v**2.4.0**: new **`_TTY`** [configuration](#configuration);
@@ -19,10 +19,6 @@ By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the
 ### Installation
 Copy this file to the **`/etc/profile.d/`** directory. This should include it automatically
 when spawning a new shell etc. (via `source` or `.`).
-
-> [!IMPORTANT]
-> **If** this won't work, the reason could be other scripts which overwrite the `$PS1` or so.
-> In this case you could try to `grep -r PS1 /etc/` and fix it for yourself.
 
 ### Configuration
 The configuration is located on top of the file (as simple variables, which will be enforced

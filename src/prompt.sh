@@ -1,15 +1,10 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.6.0
+# v2.6.1
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
-# BUT MAYBE other scripts or so override this `$PS1`
-# configuration ('/etc/profile', '/etc/bash.bashrc',
-# maybe '~/.bashrc' or '~/.profile') .. in this case
-# try to find and remove 'em, using `grep -r PS1` ..
-#
 
 #
 _TERMUX=0
