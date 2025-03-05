@@ -29,8 +29,11 @@ _TTY=1
 _CODE=1
 
 #
-alias _LIST="command ls -t --group-directories-first"
-#alias _LIST="\ls -mt --group-directories-first"
+_list()
+{
+	local _color="yes"; [[ $_ANSI -eq 0 ]] && _color="no"
+	echo; command ls -t --group-directories-first --color=${_color}
+}
 
 #
 if [[ $_TERMUX -ne 0 ]]; then
@@ -147,7 +150,7 @@ ps1Prompt()
 
 	#
 	if [[ $_LIST -ne 0 && $_last_directory != "`pwd`" ]]; then
-		echo; _LIST
+		_list
 	fi
 
 	#
