@@ -6,7 +6,7 @@ By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the
 * [Version v**2.6.0**](src/prompt.sh) (updated **2025-03-05**)
 
 ## News
-* \[**2025-03-05**\] v**2.6.0** w/ correct `local` everywhere
+* \[**2025-03-05**\] v**2.6.0** w/ correct `local` everywhere; plus better listings
 * \[**2025-03-03**\] Update to v**2.5.2**: new [config](#configuration) variable `$_CODE`!
 * \[**2025-03-02**\] [Example Screenshot](#screenshot) is now **up-2-date** again!
 * \[**2025-03-01**\] Update to v**2.4.0**: new **`_TTY`** [configuration](#configuration);
