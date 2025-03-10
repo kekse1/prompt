@@ -25,8 +25,10 @@ The configuration is located on top of the file (as simple variables, which will
 into your environments where you include this script).
 
 > [!TIP]
-> To test various constellations, you could also just set 'em in your command line
-> (after `source`ing this script). This will have an instant effect.
+> If you want to test them, or just change the config during usage, you can easily
+> **change the variables in your console**! Example given: `_LIST=0` will
+> **temporarily** disable the directory listings. After/with the next login
+> the values will be the original ones, right as defined in the script/file.
 
 The `Boolean` types are just `Integer` values with either `0` as `false` or any other
 (like `1`) for `true`.
