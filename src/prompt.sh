@@ -248,7 +248,7 @@ ps1Prompt()
 	if [[ $jobCount -gt 0 ]]; then
 		write ' '
 		startBG 140 30 140
-		startFG 255 255 255
+		startFG 190 240 50
 		startBold
 		write " $jobCount "
 		ansiReset
