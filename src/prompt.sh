@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.6.1
+# v2.6.2
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -173,7 +173,8 @@ ps1Prompt()
 
 	if [[ $_HOSTNAME -ne 0 ]]; then
 		write '@'
-		startFG 245 195 65
+		startBold
+		startFG 110 160 190
 		#write "$HOSTNAME"
 		write "`hostname`"
 		ansiReset
@@ -184,8 +185,7 @@ ps1Prompt()
 
 	#
 	if [[ $_TTY -ne 0 ]]; then
-		#startFG 110 160 190
-		startFG 110 180 60
+		startFG 130 210 90
 		write "`ps -p $$ -o tty=` "
 		ansiReset
 	fi

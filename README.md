@@ -3,9 +3,10 @@
 # My notorious **`$PS1`** prompt
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the **`$PS1` prompt**.
 
-* [Version v**2.6.1**](src/prompt.sh) (updated **2025-03-05**)
+* [Version v**2.6.2**](src/prompt.sh) (updated **2025-03-10**)
 
 ## News
+* \[**2025-03-10**\] v**2.6.2** w/ some changed colors. Looks a bit better now (imho);
 * \[**2025-03-05**\] v**2.6.1** w/ correct `local` everywhere; plus better listings
 * \[**2025-03-03**\] Update to v**2.5.2**: new [config](#configuration) variable `$_CODE`!
 * \[**2025-03-02**\] [Example Screenshot](#screenshot) is now **up-2-date** again!
