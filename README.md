@@ -1,9 +1,13 @@
 <img src="https://kekse.biz/github.php?draw&override=github:prompt" />
 
+<br>
+
 # My notorious **`$PS1`** prompt
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the **`$PS1` prompt**.
 
 * [Version v**2.6.2**](src/prompt.sh) (updated **2025-03-10**)
+
+<br><br>
 
 ## News
 * \[**2025-03-10**\] Also updated the [example screenshot](#screenshot);
@@ -14,12 +18,18 @@ By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the
 * \[**2025-03-01**\] Update to v**2.3.0**: including `ls` output **if `$PWD` changed** (see `$_LIST` [config](#configuration));
 * \[**2024-07-12**\] New v**2.1.5**. Both 'root' colors (UID+GID) have changed;
 
+<br><br>
+
 ## Screenshot
 ![$PS1](img/example.png)
+
+<br><br>
 
 ### Installation
 Copy this file to the **`/etc/profile.d/`** directory. This should include it automatically
 when spawning a new shell etc. (via `source` or `.`).
+
+<br>
 
 ### Configuration
 The configuration is located on top of the file (as simple variables, which will be enforced
@@ -51,6 +61,8 @@ into your environments where you include this script).
 
 The `Boolean` types are just `Integer` values with either `0` as `false` or `1` as `true`.
 
+<br>
+
 ### Details
 It's also using **ANSI Escape Sequences** to colorize up the prompt (if you don't disable it via `$_ANSI`
 [configuration](#configuration) variable).
@@ -58,6 +70,8 @@ It's also using **ANSI Escape Sequences** to colorize up the prompt (if you don'
 #### `getBase()`
 It also has a `getBase()` function to reduce the amount of slash `/` separators in the directory depth..
 with a bit of intelligence. See also the [configuration](#configuration) variables [ `$_SLASHES`, `$_REST_STRING` ];
+
+<br><br>
 
 # Contact
 <img src="https://kekse.biz/github.php?override=github:prompt&draw&text=prompt@kekse.biz&angle=6&size=38pt&fg=150,20,90&font=OpenSans&ro&readonly&h=64&v=16" />
