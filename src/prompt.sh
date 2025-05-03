@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.6.2
+# v2.7.0
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -22,6 +22,8 @@ _DATE_FORMAT_TWO='%j'
 _LIST=1
 _TTY=1
 _CODE=1
+_SUCCESS=0
+_SPACES=1
 
 #
 _list()
@@ -226,10 +228,13 @@ ps1Prompt()
 	[[ $_MULTI_LINE -ne 0 ]] && write "\n "
 	
 	#
+	[[ $_SPACES -eq 0 ]] || write ' '
 	if [[ $ret -eq 0 ]]; then
-		startBG 170 230 70
-		startFG 0 0 0
-		write ' ✔ '
+		if [[ $_SUCCESS -ne 0 ]]; then
+			startBG 170 230 70
+			startFG 0 0 0
+			write ' ✔ '
+		fi
 	else
 		startBG 210 45 25
 		startFG 255 255 255
@@ -246,7 +251,7 @@ ps1Prompt()
 
 	#
 	if [[ $jobCount -gt 0 ]]; then
-		write ' '
+		[[ $_SPACES -eq 0 ]] || write ' '
 		startBG 140 30 140
 		startFG 190 240 50
 		startBold
@@ -255,7 +260,7 @@ ps1Prompt()
 	fi
 	
 	#
-	write ' '
+	[[ $_SPACES -eq 0 ]] || write ' '
 	startBG 95 160 205
 	startFG 0 0 0
 	getBase $_SLASHES "`pwd`"

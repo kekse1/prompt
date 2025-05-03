@@ -5,11 +5,12 @@
 # My notorious **`$PS1`** prompt
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the **`$PS1` prompt**.
 
-* [Version v**2.6.2**](src/prompt.sh) (updated **2025-03-10**)
+* [Version v**2.7.0**](src/prompt.sh) (updated **2025-05-03**)
 
 <br><br>
 
 ## News
+* \[**2025-05-03**\] Two new [configuration](#configuration) items! Update to v**2.7.0**.
 * \[**2025-03-10**\] Also updated the [example screenshot](#screenshot);
 * \[**2025-03-10**\] v**2.6.2** w/ some changed colors. Looks a bit better now (imho);
 * \[**2025-03-05**\] v**2.6.1** w/ correct `local` everywhere; plus better listings
@@ -43,6 +44,8 @@ into your environments where you include this script).
 
 | Variable name           | Type    | Default    | Description                                                                                                                    |
 | ----------------------: | ------: | :--------- | :----------------------------------------------------------------------------------------------------------------------------- |
+| **`$_SUCCESS`**         | Boolean | 0          | Display success (`$?`), or only in case of errors?                                                                             |
+| **`$_SPACES`**          | Boolean | 1          | Spaces between the blocks?                                                                                                     |
 | **`$_CODE`**            | Boolean | 1          | Instead of indicating errors (return values != 0) with an ✘, the real error code is being displayed.                           |
 | **`$_TTY`**             | Boolean | 1          | Includes the currently used **tty** in it's output                                                                             |
 | **`$_LIST`**            | Boolean | 1          | When directory changes(!), you'll get to see it's contents.                                                                    |
