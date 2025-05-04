@@ -1,16 +1,21 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.7.0
+# v2.8.0
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
+#
+# And maybe the `getBase()` function is interesting for you,
+# too? Call it like `getBase $DEPTH $PWD`, e.g. .. it will
+# reduce a bigger directory depth to only the last (n) ..
+# with a bit of intelligence, too.
 # 
 
 #
 _TERMUX=0
 _ANSI=1
 _MULTI_LINE=1
-_SLASHES=4
+_DEPTH=4
 _REST_STRING="..."
 _COUNT=1
 _HOSTNAME=1
@@ -23,7 +28,7 @@ _LIST=1
 _TTY=1
 _CODE=1
 _SUCCESS=0
-_SPACES=1
+_SPACE=1
 
 #
 _list()
@@ -35,7 +40,7 @@ _list()
 
 #
 if [[ $_TERMUX -ne 0 ]]; then
-	_SLASHES=3
+	_DEPTH=3
 	_DATE=1
 	_HOSTNAME=0
 	_USERNAME=0
@@ -76,68 +81,7 @@ ps1Prompt()
 
 	write()
 	{
-		PS1="$PS1$*"
-	}
-
-	getBase()
-	{
-		local _depth=$1
-		shift
-		local _dir="$*"
-		local res=""
-		local slashCount=0
-
-		if [[ ${_dir} == "/" ]]; then
-			write ' / '
-			return
-		fi
-
-		while [[ "${_dir: -1}" == "/" ]]; do
-			_dir="${_dir::-1}"
-		done
-
-		local homeLen=${#HOME}
-		
-		if [[ "$_dir" == "$HOME" ]]; then
-			_dir="~"
-		elif [[ "${_dir:0:$(($homeLen + 1))}" == "$HOME/" ]]; then
-			_dir="~${_dir:$homeLen}"
-		fi
-
-		local i; local j; local inHome; local upper;
-		for (( i=${#_dir}-1; i >= 0; i-- )); do
-			if [[ ${_dir:$i:1} == "/" ]]; then
-				let slashCount=$slashCount+1
-				res="/${res}"
-
-				if [[ $slashCount -eq $_depth ]]; then
-					inHome=0
-					upper=""
-
-					for (( j=$i-1; j >= 0; j--)); do
-						if [[ "${_dir:$j:1}" != "/" ]]; then
-							upper="${_dir:$j:1}${upper}"
-						fi
-						
-						if [[ "$upper" == "~" ]]; then
-							inHome=1
-							break
-						fi
-					done
-
-					if [[ $inHome -ne 0 ]]; then
-						res="~${res}"
-					elif [[ $i -gt 0 ]]; then
-						res="${_REST_STRING}${res}"
-					fi
-					break
-				fi
-			else
-				res="${_dir:$i:1}${res}"
-			fi
-		done
-
-		write " $res "
+		PS1+="$*"
 	}
 
 	#
@@ -225,17 +169,21 @@ ps1Prompt()
 	fi
 
 	#
-	[[ $_MULTI_LINE -ne 0 ]] && write "\n "
+	[[ $_MULTI_LINE -ne 0 ]] && write "\n  "
 	
 	#
-	[[ $_SPACES -eq 0 ]] || write ' '
+	local didResult=0
+
 	if [[ $ret -eq 0 ]]; then
 		if [[ $_SUCCESS -ne 0 ]]; then
+			write ' '
 			startBG 170 230 70
 			startFG 0 0 0
 			write ' ✔ '
+			didResult=1
 		fi
 	else
+		write ' '
 		startBG 210 45 25
 		startFG 255 255 255
 
@@ -245,13 +193,17 @@ ps1Prompt()
 			startBold
 			write " $ret "
 		fi
+
+		didResult=1
 	fi
 
 	ansiReset
 
+	[[ $didResult -eq 0 && $_SPACE -eq 0 ]] && write ' '
+
 	#
 	if [[ $jobCount -gt 0 ]]; then
-		[[ $_SPACES -eq 0 ]] || write ' '
+		[[ $_SPACE -eq 0 ]] || write ' '
 		startBG 140 30 140
 		startFG 190 240 50
 		startBold
@@ -260,10 +212,10 @@ ps1Prompt()
 	fi
 	
 	#
-	[[ $_SPACES -eq 0 ]] || write ' '
+	[[ $_SPACE -eq 0 ]] || write ' '
 	startBG 95 160 205
 	startFG 0 0 0
-	getBase $_SLASHES "`pwd`"
+	PS1+="$(getBase $_DEPTH "`pwd`")"
 	ansiReset
 	write ' '
 
@@ -273,4 +225,66 @@ ps1Prompt()
 }
 
 export PROMPT_COMMAND=ps1Prompt
+
+#
+getBase()
+{
+	local _depth=$1
+	shift
+	local _dir="$*"
+	local res=""
+	local slashCount=0
+
+	if [[ ${_dir} == "/" ]]; then
+		write ' / '
+		return
+	fi
+
+	while [[ "${_dir: -1}" == "/" ]]; do
+		_dir="${_dir::-1}"
+	done
+
+	local homeLen=${#HOME}
+	
+	if [[ "$_dir" == "$HOME" ]]; then
+		_dir="~"
+	elif [[ "${_dir:0:$(($homeLen + 1))}" == "$HOME/" ]]; then
+		_dir="~${_dir:$homeLen}"
+	fi
+
+	local i; local j; local inHome; local upper;
+	for (( i=${#_dir}-1; i >= 0; i-- )); do
+		if [[ ${_dir:$i:1} == "/" ]]; then
+			let slashCount=$slashCount+1
+			res="/${res}"
+
+			if [[ $slashCount -eq $_depth ]]; then
+				inHome=0
+				upper=""
+
+				for (( j=$i-1; j >= 0; j--)); do
+					if [[ "${_dir:$j:1}" != "/" ]]; then
+						upper="${_dir:$j:1}${upper}"
+					fi
+					
+					if [[ "$upper" == "~" ]]; then
+						inHome=1
+						break
+					fi
+				done
+
+				if [[ $inHome -ne 0 ]]; then
+					res="~${res}"
+				elif [[ $i -gt 0 ]]; then
+					res="${_REST_STRING}${res}"
+				fi
+				break
+			fi
+		else
+			res="${_dir:$i:1}${res}"
+		fi
+	done
+
+	echo " $res "
+}
 

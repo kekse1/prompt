@@ -5,11 +5,12 @@
 # My notorious **`$PS1`** prompt
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the **`$PS1` prompt**.
 
-* [Version v**2.7.0**](src/prompt.sh) (updated **2025-05-03**)
+* [Version v**2.8.0**](src/prompt.sh) (updated **2025-05-04**)
 
 <br><br>
 
 ## News
+* \[**2025-05-04**\] Beautified it a bit, renamed two [config variables](#configuration), and a bit more. .. v**2.8.0**!
 * \[**2025-05-03**\] Two new [configuration](#configuration) items! Update to v**2.7.0**.
 * \[**2025-03-10**\] Also updated the [example screenshot](#screenshot);
 * \[**2025-03-10**\] v**2.6.2** w/ some changed colors. Looks a bit better now (imho);
@@ -45,14 +46,14 @@ into your environments where you include this script).
 | Variable name           | Type    | Default    | Description                                                                                                                    |
 | ----------------------: | ------: | :--------- | :----------------------------------------------------------------------------------------------------------------------------- |
 | **`$_SUCCESS`**         | Boolean | 0          | Display success (`$?`), or only in case of errors?                                                                             |
-| **`$_SPACES`**          | Boolean | 1          | Spaces between the blocks?                                                                                                     |
+| **`$_SPACE`**           | Boolean | 1          | Spaces between the blocks?                                                                                                     |
 | **`$_CODE`**            | Boolean | 1          | Instead of indicating errors (return values != 0) with an ✘, the real error code is being displayed.                           |
 | **`$_TTY`**             | Boolean | 1          | Includes the currently used **tty** in it's output                                                                             |
 | **`$_LIST`**            | Boolean | 1          | When directory changes(!), you'll get to see it's contents.                                                                    |
 | **`$_TERMUX`**          | Boolean | 0          | Will enforce some settings to fit better to the [`Termux` Linux](https://termux.dev/) (for Android phones)                     |
 | **`$_ANSI`**            | Boolean | 1          | Here you could also disable all ANSI Escape Sequences (for colors and styles)                                                  |
 | **`$_MULTI_LINE`**      | Boolean | 1          | Looks better when using a two line prompt                                                                                      |
-| **`$_SLASHES`**         | Integer | 4          | The amount of directories to show in your current working directory.. see the [`getBase()`](#getbase) section                  |
+| **`$_DEPTH`**           | Integer | 4          | The amount of directories to show in your current working directory.. see the [`getBase()`](#getbase) section                  |
 | **`$_REST_STRING`**     | String  | `...`      | Also for the [`getBase()`](#getbase) function: the cut off parts of your current working directory are replaced by this string |
 | **`$_COUNT`**           | Boolean | 1          | Will also show the amount of directories and regular files in the current working directory                                    |
 | **`$_HOSTNAME`**        | Boolean | 1          | Also show your machine's hostname (if set, directly at the username)                                                           |
