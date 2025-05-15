@@ -5,11 +5,12 @@
 # My notorious **`$PS1`** prompt
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically created the **`$PS1` prompt**.
 
-* [Version v**2.8.0**](src/prompt.sh) (updated **2025-05-04**)
+* [Version v**2.9.0**](src/prompt.sh) (updated **2025-05-15**)
 
 <br><br>
 
 ## News
+* \[**2025-05-15**\] "Alles ist besser mit Bluetooth!" ... v**2.9.0**.
 * \[**2025-05-04**\] Beautified it a bit, renamed two [config variables](#configuration), and a bit more. .. v**2.8.0**!
 * \[**2025-05-03**\] Two new [configuration](#configuration) items! Update to v**2.7.0**.
 * \[**2025-03-10**\] Also updated the [example screenshot](#screenshot);

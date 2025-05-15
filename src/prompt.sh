@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.8.0
+# v2.9.0
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 #
@@ -215,7 +215,7 @@ ps1Prompt()
 	[[ $_SPACE -eq 0 ]] || write ' '
 	startBG 95 160 205
 	startFG 0 0 0
-	PS1+="$(getBase $_DEPTH "`pwd`")"
+	write " $(getBase $_DEPTH "`pwd`") "
 	ansiReset
 	write ' '
 
@@ -236,7 +236,7 @@ getBase()
 	local slashCount=0
 
 	if [[ ${_dir} == "/" ]]; then
-		write ' / '
+		echo '/'
 		return
 	fi
 
@@ -285,6 +285,6 @@ getBase()
 		fi
 	done
 
-	echo " $res "
+	echo "$res"
 }
 
