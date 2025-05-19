@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.9.0
+# v2.9.1
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 #
@@ -43,7 +43,7 @@ if [[ $_TERMUX -ne 0 ]]; then
 	_DEPTH=3
 	_DATE=1
 	_HOSTNAME=0
-	_USERNAME=0
+	_USERNAME=1
 	_LOAD=0
 	#_COUNT=0
 	_TTY=0
