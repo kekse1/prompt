@@ -8,6 +8,9 @@ creates the **`$PS1` prompt**.
 
 * [Version v**2.9.1**](src/prompt.sh) (updated **2025-05-19**)
 
+<br>
+![kinda logo](img/logo.png)
+
 <br><br>
 
 ## News
