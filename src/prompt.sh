@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.9.1
+# v2.9.2
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 #
@@ -160,11 +160,11 @@ ps1Prompt()
 	if [[ $_COUNT -ne 0 ]]; then
 		#
 		startFG 190 60 250
-		write "`find -maxdepth 1 -type f | wc -l`"
+		write "`find -maxdepth 1 -mindepth 1 -type f | wc -l`"
 		startFG 200 220 20
 		write '/'
 		startFG 250 60 180
-		write "$((`find -maxdepth 1 -type d | wc -l`-1)) "
+		write "`find -maxdepth 1 -mindepth 1 -type d | wc -l`"
 		ansiReset
 	fi
 

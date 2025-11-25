@@ -6,7 +6,7 @@
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically
 creates the **`$PS1` prompt**.
 
-* [Version v**2.9.1**](src/prompt.sh) (updated **2025-05-19**)
+* [Version v**2.9.2**](src/prompt.sh) (updated **2025-11-25**)
 
 <br>
 
@@ -15,6 +15,7 @@ creates the **`$PS1` prompt**.
 <br><br>
 
 ## News
+* \[**2025-11-25**\] Tiny change (where using `find`), v**2.9.2**;
 * \[**2025-05-19**\] Tiny change of `$_TERMUX` defaults: w/ `$_USERNAME` now, but w/o `$_HOSTNAME`; v**2.9.1**.
 * \[**2025-05-15**\] "Alles ist besser mit Bluetooth!" ... v**2.9.0**.
 * \[**2025-05-04**\] Beautified it a bit, renamed two [config variables](#configuration), and a bit more. .. v**2.8.0**!
