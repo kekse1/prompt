@@ -31,12 +31,12 @@ creates the **`$PS1` prompt**.
 * \[**2024-07-12**\] New v**2.1.5**. Both 'root' colors (UID+GID) have changed;
   -->
 
-<br><br>
+<br>
 
 ## Screenshot
 ![$PS1](img/screenshot.png)
 
-<br><br>
+<br>
 
 ### Installation
 Copy this file to the **`/etc/profile.d/`** directory. This should include it automatically
