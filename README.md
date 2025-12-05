@@ -6,30 +6,11 @@
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically
 creates the **`$PS1` prompt**.
 
-* [Version v**2.9.4**](src/prompt.sh) (updated **2025-12-05**)
+* [Version v**2.9.5**](src/prompt.sh) (updated **2025-12-05**)
 
 <br>
 
 ![kinda logo](img/ps1.png)
-
-<br><br>
-
-<!--
-## News
-* \[**2025-12-05**\] Changed colors/style, just a little bit.. v**2.9.4**;
-* \[**2025-11-25**\] Tiny change (where using `find`), v**2.9.2**;
-* \[**2025-05-19**\] Tiny change of `$_TERMUX` defaults: w/ `$_USERNAME` now, but w/o `$_HOSTNAME`; v**2.9.1**.
-* \[**2025-05-15**\] "Alles ist besser mit Bluetooth!" ... v**2.9.0**.
-* \[**2025-05-04**\] Beautified it a bit, renamed two [config variables](#configuration), and a bit more. .. v**2.8.0**!
-* \[**2025-05-03**\] Two new [configuration](#configuration) items! Update to v**2.7.0**.
-* \[**2025-03-10**\] Also updated the [example screenshot](#screenshot);
-* \[**2025-03-10**\] v**2.6.2** w/ some changed colors. Looks a bit better now (imho);
-* \[**2025-03-05**\] v**2.6.1** w/ correct `local` everywhere; plus better listings
-* \[**2025-03-03**\] Update to v**2.5.2**: new [config](#configuration) variable `$_CODE`!
-* \[**2025-03-01**\] Update to v**2.4.0**: new **`_TTY`** [configuration](#configuration);
-* \[**2025-03-01**\] Update to v**2.3.0**: including `ls` output **if `$PWD` changed** (see `$_LIST` [config](#configuration));
-* \[**2024-07-12**\] New v**2.1.5**. Both 'root' colors (UID+GID) have changed;
-  -->
 
 <br>
 
@@ -77,6 +58,7 @@ into your environments where you include this script).
 | **`$_DATE`**            | Boolean | 1          | Depends on the both variables below [ `$_DATE_FORMAT_ONE` and `$_DATE_FORMAT_TWO` ]                                            |
 | **`$_DATE_FORMAT_ONE`** | String  | `%H:%M:%S` | First `date` format; by default only the current time (the date in the `$_DATE_FORMAT_TWO`)                                    |
 | **`$_DATE_FORMAT_TWO`** | String  | `%j`       | Second `date` format; by default the number of current days in the year                                                        |
+| **`$_NEWLINE`**         | Boolean | 1          | Start the prompt output with an empty line                                                                                     |
 
 The `Boolean` types are just `Integer` values with either `0` as `false` or `1` as `true`.
 

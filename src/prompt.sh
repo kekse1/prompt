@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.9.4
+# v2.9.5
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 #
@@ -29,6 +29,7 @@ _TTY=1
 _CODE=1
 _SUCCESS=0
 _SPACE=1
+_NEWLINE=1
 
 #
 _list()
@@ -91,7 +92,10 @@ ps1Prompt()
 	local jobCount=`jobs -p | wc -l`
 
 	#
+	local listed=0
+
 	if [[ $_LIST -ne 0 && $_last_directory != "`pwd`" ]]; then
+		listed=1
 		_list
 	fi
 
@@ -221,6 +225,9 @@ ps1Prompt()
 	write " $(getBase $_DEPTH "`pwd`") "
 	ansiReset
 	write ' '
+
+	#
+	[[ $_NEWLINE -ne 0 && $listed -eq 0 ]] && echo
 
 	#
 	_last_directory="`pwd`"
