@@ -14,6 +14,7 @@ creates the **`$PS1` prompt**.
 
 <br><br>
 
+<!--
 ## News
 * \[**2025-12-05**\] Changed colors/style, just a little bit.. v**2.9.4**;
 * \[**2025-11-25**\] Tiny change (where using `find`), v**2.9.2**;
@@ -28,6 +29,7 @@ creates the **`$PS1` prompt**.
 * \[**2025-03-01**\] Update to v**2.4.0**: new **`_TTY`** [configuration](#configuration);
 * \[**2025-03-01**\] Update to v**2.3.0**: including `ls` output **if `$PWD` changed** (see `$_LIST` [config](#configuration));
 * \[**2024-07-12**\] New v**2.1.5**. Both 'root' colors (UID+GID) have changed;
+  -->
 
 <br><br>
 
