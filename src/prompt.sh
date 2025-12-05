@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.9.3
+# v2.9.4
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 #
@@ -104,14 +104,15 @@ ps1Prompt()
 	#
 	if [[ $_USERNAME -ne 0 ]]; then
 		if [[ `id -u` -eq 0 ]]; then
-			startBG 200 20 20
+			startFG 255 60 10
+			startBold
 		elif [[ `id -g` -eq 0 ]]; then
-			startFG 200 20 20
+			startFG 255 10 210
+			startBold
 		else
-			startFG 225 245 70
+			startFG 180 210 20
 		fi
 
-		#startBold
 		write "`id -nu`"
 		ansiReset
 		user_host=1
@@ -132,7 +133,7 @@ ps1Prompt()
 
 	#
 	if [[ $_TTY -ne 0 ]]; then
-		startFG 130 210 90
+		startFG 210 80 255
 		write "`ps -p $$ -o tty=` "
 		ansiReset
 	fi
