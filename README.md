@@ -21,6 +21,10 @@ creates the **`$PS1` prompt**.
 ## Screenshot
 Click on it to open full view (original `.jpg` file).
 
+> [!NOTE]
+> The screenshot doesn't contain the newest `$_NEWLINE` [configuration](#configuration) yet.
+> With this config (**enabled** by default) you'll see much more clear. ^\_^
+
 <a href="img/prompt.jpg">
     <img src="img/prompt.png" alt="Example screenshot of my prompt" />
 </a>
