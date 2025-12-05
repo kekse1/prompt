@@ -19,7 +19,7 @@ creates the **`$PS1` prompt**.
 <br>
 
 ## Screenshot
-Click on it to open full view (original `.jpg` file).
+Click on it to enlarge.
 
 > [!NOTE]
 > The screenshot doesn't contain the newest `$_NEWLINE` [configuration](#configuration) yet.
