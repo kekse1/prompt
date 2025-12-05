@@ -6,7 +6,7 @@
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically
 creates the **`$PS1` prompt**.
 
-* [Version v**2.9.5**](src/prompt.sh) (updated **2025-12-05**)
+* [Version v**2.9.6**](src/prompt.sh) (updated **2025-12-05**)
 
 <br>
 
@@ -14,7 +14,7 @@ creates the **`$PS1` prompt**.
 
 <br>
 
-* \[**2025-12-05**\] Update: now w/ `$_NEWLINE` setting (not yet included in the [screenshot](#screenshot)); v**2.9.5**;
+* \[**2025-12-05**\] Update: now w/ `$_NEWLINE` setting (not yet in the [screenshot](#screenshot)) and the `$__PROMPT`; v**2.9.6**;
 
 <br>
 
@@ -74,6 +74,11 @@ The `Boolean` types are just `Integer` values with either `0` as `false` or `1` 
 ### Details
 It's also using **ANSI Escape Sequences** to colorize up the prompt (if you don't disable it via `$_ANSI`
 [configuration](#configuration) variable).
+
+#### `$__PROMPT`
+This variable is defined to count how many times a prompt was constructed.
+
+Currently there's just one reason for it: the `$_NEWLINE`.. but since it doesn't disturb anything, it's 'O.K.'...
 
 #### `getBase()`
 It also has a `getBase()` function to reduce the amount of slash `/` separators in the directory depth..

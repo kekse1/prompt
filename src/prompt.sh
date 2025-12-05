@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.9.5
+# v2.9.6
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 #
@@ -32,6 +32,9 @@ _SPACE=1
 _NEWLINE=1
 
 #
+__PROMPT=0
+
+#
 _list()
 {
 	local _color="yes"; [[ $_ANSI -eq 0 ]] && _color="no"
@@ -58,6 +61,7 @@ ps1Prompt()
 {
 	#
 	local ret=$?
+	((++__PROMPT))
 
 	#
 	startFG()
@@ -227,7 +231,7 @@ ps1Prompt()
 	write ' '
 
 	#
-	[[ $_NEWLINE -ne 0 && $listed -eq 0 ]] && echo
+	[[ $_NEWLINE -ne 0 && $listed -eq 0 && $__PROMPT -gt 1 ]] && echo
 
 	#
 	_last_directory="`pwd`"
