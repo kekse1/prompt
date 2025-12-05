@@ -105,6 +105,7 @@ ps1Prompt()
 	if [[ $_USERNAME -ne 0 ]]; then
 		if [[ `id -u` -eq 0 ]]; then
 			startFG 255 60 10
+			startBG 100 10 10
 			startBold
 		elif [[ `id -g` -eq 0 ]]; then
 			startFG 255 10 210
