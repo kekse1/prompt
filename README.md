@@ -14,6 +14,10 @@ creates the **`$PS1` prompt**.
 
 <br>
 
+* \[**2025-12-05**\] Update: now w/ `$_NEWLINE` setting (not yet included in the [screenshot](#screenshot)); v**2.9.5**;
+
+<br>
+
 ## Screenshot
 Click on it to open full view (original `.jpg` file).
 
