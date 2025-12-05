@@ -34,7 +34,11 @@ creates the **`$PS1` prompt**.
 <br>
 
 ## Screenshot
-![$PS1](img/screenshot.png)
+Click on it to open full view (original `.jpg` file).
+
+<a href="img/prompt.jpg">
+    <img src="img/prompt.png" alt="Example screenshot of my prompt" />
+</a>
 
 <br>
 
