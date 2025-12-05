@@ -10,7 +10,7 @@ creates the **`$PS1` prompt**.
 
 <br>
 
-![kinda logo](img/logo.png)
+![kinda logo](img/ps1.png)
 
 <br><br>
 
@@ -32,7 +32,7 @@ creates the **`$PS1` prompt**.
 <br><br>
 
 ## Screenshot
-![$PS1](img/example.png)
+![$PS1](img/screenshot.png)
 
 <br><br>
 
