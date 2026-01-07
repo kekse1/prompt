@@ -150,7 +150,7 @@ ps1Prompt()
 		startFG 220 100 0
 		write "`find -maxdepth 1 -mindepth 1 -type f | wc -l`"
 		startFG 180 255 0
-		startBold
+		#startBold
 		write '⧜'
 		ansiReset
 		startFG 255 210 20
