@@ -112,7 +112,8 @@ ps1Prompt()
 			startFG 255 10 210
 			startBold
 		else
-			startFG 180 210 20
+			#startFG 180 210 20
+			startFG 255 255 0
 		fi
 
 		write "`id -nu`"
@@ -122,7 +123,7 @@ ps1Prompt()
 
 	if [[ $_HOSTNAME -ne 0 ]]; then
 		write '@'
-		startFG 240 150 20
+		startFG 255 150 0
 		#write "$HOSTNAME"
 		write "`hostname`"
 		ansiReset
