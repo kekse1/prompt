@@ -14,7 +14,7 @@ creates the **`$PS1` prompt**.
 
 <br>
 
-* \[**2026-01-07**\] BIG design improvements! Plus the new **`$_LINK` and `$_SORT` [settings](#configuration); v**2.10.0**.
+* \[**2026-01-07**\] BIG design improvements; plus the new **`$_LINK`** and `$_SORT` [settings](#configuration); v**2.10.0**.
 * \[**2025-12-05**\] Update: now w/ `$_NEWLINE` setting, in v**2.9.6**;
 
 <br><br>
