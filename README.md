@@ -20,13 +20,16 @@ creates the **`$PS1` prompt**.
 <br><br>
 
 ## Screenshot
-Click on it to enlarge.
+These two are nearly the same - except their terminals.
 
-<a href="img/screenshot.png">
-    <img src="img/prompt.png" alt="Example screenshot (v2.10.0);" />
-</a>
+We're asking the `$TERM` environment variable:
+* The first screenshot is inside a `xterm-256color`.
+* The second one is inside `xterm-kitty`.
 
-<br>
+![xterm-256color](./img/screenshot.xterm.png)
+![xterm-kitty](./img/screenshot.kitty.png)
+
+<br><br>
 
 ### Installation
 Copy this file to the **`/etc/profile.d/`** directory. This should include it automatically
