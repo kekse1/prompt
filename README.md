@@ -14,7 +14,7 @@ creates the **`$PS1` prompt**.
 
 <br>
 
-* \[**2026-01-07**\] BIG design improvements; plus the new **`$_LINK`** and `$_SORT` [settings](#configuration); v**2.10.0**.
+* \[**2026-01-07**\] BIG design improvements; plus the new **`$_LINK`** [setting](#configuration); v**2.10.0**.
 * \[**2025-12-05**\] Update: now w/ `$_NEWLINE` setting, in v**2.9.6**;
 
 <br><br>
@@ -68,7 +68,6 @@ into your environments where you include this script).
 | **`$_DATE_FORMAT_TWO`** | String  | `%j`       | Second `date` format; by default the number of current days in the year                                                        |
 | **`$_NEWLINE`**         | Boolean | 1          | Start the prompt output with an empty line                                                                                     |
 | **`$_LINK`**            | Boolean | 1          | Displays a warning symbol when your current working directory path is only a symbolic link (rather the `realpath` one)         |
-| **`$_SORT`**            | String  | `name`     | Will be passed through to the `\ls` call                                                                                       |
 
 The `Boolean` types are just `Integer` values with either `0` as `false` or `1` as `true`.
 

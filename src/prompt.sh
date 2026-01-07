@@ -30,13 +30,12 @@ _SUCCESS=0
 _SPACE=1
 _NEWLINE=1
 _LINK=1
-_SORT='name' #/'size'/.. `man 1 ls`.
 
 #
 _list()
 {
 	local _color="yes"; [[ $_ANSI -eq 0 ]] && _color="no"
-	local data="$(\ls -C --group-directories-first --color=${_color} --sort=${_SORT})"
+	local data="$(\ls -C --group-directories-first --color=${_color})"
 	[[ ${#data} -gt 0 ]] && echo -e "\n${data}\n"
 }
 
