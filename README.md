@@ -6,7 +6,7 @@
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically
 creates the **`$PS1` prompt**.
 
-* [Version v**2.9.6**](src/prompt.sh) (updated **2025-12-05**)
+* [Version v**2.10.0**](src/prompt.sh) (updated **2026-01-07**)
 
 <br>
 
@@ -14,18 +14,16 @@ creates the **`$PS1` prompt**.
 
 <br>
 
-* \[**2025-12-05**\] Update: now w/ `$_NEWLINE` setting (not yet in the [screenshot](#screenshot)) and the `$__PROMPT`; v**2.9.6**;
+* \[**2026-01-07**\] BIG design improvements! Plus the new **`$_LINK` and `$_SORT` [settings](#configuration); v**2.10.0**.
+* \[**2025-12-05**\] Update: now w/ `$_NEWLINE` setting, in v**2.9.6**;
 
-<br>
+<br><br>
 
 ## Screenshot
 Click on it to enlarge.
 
-> [!NOTE]
-> The screenshot doesn't contain the newest `$_NEWLINE` [configuration](#configuration) yet.
-
-<a href="img/prompt.jpg">
-    <img src="img/prompt.png" alt="Example screenshot of my prompt" />
+<a href="img/screenshot.png">
+    <img src="img/prompt.png" alt="Example screenshot (v2.10.0);" />
 </a>
 
 <br>
@@ -66,6 +64,8 @@ into your environments where you include this script).
 | **`$_DATE_FORMAT_ONE`** | String  | `%H:%M:%S` | First `date` format; by default only the current time (the date in the `$_DATE_FORMAT_TWO`)                                    |
 | **`$_DATE_FORMAT_TWO`** | String  | `%j`       | Second `date` format; by default the number of current days in the year                                                        |
 | **`$_NEWLINE`**         | Boolean | 1          | Start the prompt output with an empty line                                                                                     |
+| **`$_LINK`**            | Boolean | 1          | Displays a warning symbol when your current working directory path is only a symbolic link (rather the `realpath` one)         |
+| **`$_SORT`**            | String  | `name`     | Will be passed through to the `\ls` call                                                                                       |
 
 The `Boolean` types are just `Integer` values with either `0` as `false` or `1` as `true`.
 
@@ -75,14 +75,17 @@ The `Boolean` types are just `Integer` values with either `0` as `false` or `1` 
 It's also using **ANSI Escape Sequences** to colorize up the prompt (if you don't disable it via `$_ANSI`
 [configuration](#configuration) variable).
 
-#### `$__PROMPT`
-This variable is defined to count how many times a prompt was constructed.
-
-Currently there's just one reason for it: the `$_NEWLINE`.. but since it doesn't disturb anything, it's 'O.K.'...
 
 #### `getBase()`
 It also has a `getBase()` function to reduce the amount of slash `/` separators in the directory depth..
 with a bit of intelligence. See also the [configuration](#configuration) variables [ `$_SLASHES`, `$_REST_STRING` ];
+
+
+#### `cwd()`
+Query for the `$PWD`/`pwd` with resolving it's `realpath`.
+
+This is for the `$_LINK` symbol which appears when you are inside a directory
+whose path is a symbolic link, not the real one (see `man 1 realpath`).
 
 <br><br>
 

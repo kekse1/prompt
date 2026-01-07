@@ -1,16 +1,15 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-# https://kekse.biz/ https://github.com/kekse1/prompt/
-# v2.9.6
+# https://kekse.biz/  https://github.com/kekse1/prompt/
+# v2.10.0
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
-#
-# And maybe the `getBase()` function is interesting for you,
-# too? Call it like `getBase $DEPTH $PWD`, e.g. .. it will
-# reduce a bigger directory depth to only the last (n) ..
-# with a bit of intelligence, too.
 # 
 
+#
+# you can set this variables directly in the shell (while
+# using it). it won't be confirmed, but the behavior will
+# instantaneously change.
 #
 _TERMUX=0
 _ANSI=1
@@ -30,15 +29,14 @@ _CODE=1
 _SUCCESS=0
 _SPACE=1
 _NEWLINE=1
-
-#
-__PROMPT=0
+_LINK=1
+_SORT='name' #/'size'/.. `man 1 ls`.
 
 #
 _list()
 {
 	local _color="yes"; [[ $_ANSI -eq 0 ]] && _color="no"
-	local data="$(command ls -t -C --group-directories-first --color=${_color})"
+	local data="$(\ls -C --group-directories-first --color=${_color} --sort=${_SORT})"
 	[[ ${#data} -gt 0 ]] && echo -e "\n${data}\n"
 }
 
@@ -54,14 +52,10 @@ if [[ $_TERMUX -ne 0 ]]; then
 fi
 
 #
-_last_directory="`pwd`"
-
-#
 ps1Prompt()
 {
 	#
 	local ret=$?
-	((++__PROMPT))
 
 	#
 	startFG()
@@ -98,7 +92,7 @@ ps1Prompt()
 	#
 	local listed=0
 
-	if [[ $_LIST -ne 0 && $_last_directory != "`pwd`" ]]; then
+	if [[ $_LIST -ne 0 && $_last_directory != "`cwd`" ]]; then
 		listed=1
 		_list
 	fi
@@ -129,9 +123,7 @@ ps1Prompt()
 
 	if [[ $_HOSTNAME -ne 0 ]]; then
 		write '@'
-		#startBold
 		startFG 240 150 20
-		#startFG 110 160 190
 		#write "$HOSTNAME"
 		write "`hostname`"
 		ansiReset
@@ -142,19 +134,43 @@ ps1Prompt()
 
 	#
 	if [[ $_TTY -ne 0 ]]; then
-		startFG 210 80 255
-		write "`ps -p $$ -o tty=` "
+		startFG 110 170 220
+		write ' ['
+		startFG 60 150 210
+		write "`ps -p $$ -o tty=`"
+		startFG 110 170 220
+		write '] '
 		ansiReset
 	fi
-	
+
+	#
+	if [[ $_COUNT -ne 0 ]]; then
+		#
+		write '  '
+		startFG 220 100 0
+		write "`find -maxdepth 1 -mindepth 1 -type f | wc -l`"
+		startFG 180 255 0
+		startBold
+		write '⧜'
+		ansiReset
+		startFG 255 210 20
+		write "`find -maxdepth 1 -mindepth 1 -type d | wc -l`"
+		ansiReset
+	fi
+
 	#
 	if [[ $_DATE -ne 0 && -n "$_DATE_FORMAT_ONE" ]]; then
-		startFG 110 200 255
-		write "`date +"$_DATE_FORMAT_ONE"` "
+		write '      ' #4
+		startFG 150 220 0
+		write "`date +"$_DATE_FORMAT_ONE"`"
 		if [[ -n "$_DATE_FORMAT_TWO" ]]; then
-			startFG 210 140 30
-			write "`date +"$_DATE_FORMAT_TWO"` "
+			startFG 210 140 10
+			write '/'
+			startFG 255 180 0
+			write "`date +"$_DATE_FORMAT_TWO"`"
+			startFG 255 255 0
 		fi
+		write ' '
 		ansiReset
 	fi
 	
@@ -162,20 +178,9 @@ ps1Prompt()
 	if [[ $_LOAD -ne 0 && -r /proc/loadavg ]]; then
 		local one; local five; local fifteen; local rest;
 		read one five fifteen rest </proc/loadavg
-		startFG 180 250 0
+		write '   '
+		startFG 0 210 220
 		write "$one $five $fifteen "
-		ansiReset
-	fi
-
-	#
-	if [[ $_COUNT -ne 0 ]]; then
-		#
-		startFG 190 60 250
-		write "`find -maxdepth 1 -mindepth 1 -type f | wc -l`"
-		startFG 200 220 20
-		write '/'
-		startFG 250 60 180
-		write "`find -maxdepth 1 -mindepth 1 -type d | wc -l`"
 		ansiReset
 	fi
 
@@ -229,12 +234,21 @@ ps1Prompt()
 	write " $(getBase $_DEPTH "`pwd`") "
 	ansiReset
 	write ' '
+	
+	if [[ $_LINK -ne 0 && "`pwd`" != "`cwd`" ]]; then
+		startBG 120 60 0
+		startFG 255 210 0
+		startBold
+		write ' ⧜ '
+		ansiReset
+		write ' '
+	fi
 
 	#
-	[[ $_NEWLINE -ne 0 && $listed -eq 0 && $__PROMPT -gt 1 ]] && echo
+	[[ $_NEWLINE -ne 0 && $listed -eq 0 ]] && echo
 
 	#
-	_last_directory="`pwd`"
+	_last_directory="`cwd`"
 	export PS1
 }
 
@@ -302,3 +316,12 @@ getBase()
 	echo "$res"
 }
 
+#
+cwd()
+{
+	echo "$(realpath "`pwd`")"
+}
+
+_last_directory="`cwd`"
+
+#
