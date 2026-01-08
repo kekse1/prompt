@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/  https://github.com/kekse1/prompt/
-# v2.10.0
+# v2.10.1
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -123,7 +123,7 @@ ps1Prompt()
 
 	if [[ $_HOSTNAME -ne 0 ]]; then
 		write '@'
-		startFG 255 150 0
+		startFG 255 130 0
 		#write "$HOSTNAME"
 		write "`hostname`"
 		ansiReset
@@ -134,11 +134,11 @@ ps1Prompt()
 
 	#
 	if [[ $_TTY -ne 0 ]]; then
-		startFG 110 170 220
+		startFG 160 220 255
 		write ' ['
 		startFG 60 150 210
 		write "`ps -p $$ -o tty=`"
-		startFG 110 170 220
+		startFG 160 220 255
 		write '] '
 		ansiReset
 	fi
@@ -147,14 +147,14 @@ ps1Prompt()
 	if [[ $_COUNT -ne 0 ]]; then
 		#
 		write '  '
-		startFG 220 100 0
-		write "`find -maxdepth 1 -mindepth 1 -type f | wc -l`"
+		startFG 70 230 255
+		write "`find -maxdepth 1 -mindepth 1 -type d | wc -l`"
 		startFG 180 255 0
 		#startBold
-		write '⧜'
+		write ' ⧜ '
 		ansiReset
-		startFG 255 210 20
-		write "`find -maxdepth 1 -mindepth 1 -type d | wc -l`"
+		startFG 70 255 190
+		write "`find -maxdepth 1 -mindepth 1 -type f | wc -l`"
 		ansiReset
 	fi
 
