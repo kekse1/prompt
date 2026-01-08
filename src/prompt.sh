@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/  https://github.com/kekse1/prompt/
-# v2.10.1
+# v2.10.2
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -179,8 +179,13 @@ ps1Prompt()
 		local one; local five; local fifteen; local rest;
 		read one five fifteen rest </proc/loadavg
 		write '   '
-		startFG 0 210 220
-		write "$one $five $fifteen "
+		startFG 255 90 120
+		write "$one "
+		#startFG 255 90 210
+		startFG 255 90 240
+		write "$five "
+		startFG 170 90 255
+		write "$fifteen "
 		ansiReset
 	fi
 
