@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/  https://github.com/kekse1/prompt/
-# v2.10.2
+# v2.10.3
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -134,11 +134,11 @@ ps1Prompt()
 
 	#
 	if [[ $_TTY -ne 0 ]]; then
-		startFG 160 220 255
-		write ' ['
 		startFG 60 150 210
-		write "`ps -p $$ -o tty=`"
+		write ' ['
 		startFG 160 220 255
+		write "`ps -p $$ -o tty=`"
+		startFG 60 150 210
 		write '] '
 		ansiReset
 	fi
