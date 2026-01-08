@@ -21,14 +21,9 @@ creates the **`$PS1` prompt**.
 <br><br>
 
 ## Screenshot
-These two are nearly the same - except their terminals.
+Example; (`$TERM` == `xterm-256color`);
 
-We're asking the `$TERM` environment variable:
-* The first screenshot is inside a `xterm-256color`.
-* The second one is inside `xterm-kitty`.
-
-![xterm-256color](./img/screenshot.xterm.png)
-![xterm-kitty](./img/screenshot.kitty.png)
+![xterm-256color](./img/example.png)
 
 <br><br>
 
