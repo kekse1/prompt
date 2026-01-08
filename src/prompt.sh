@@ -147,13 +147,13 @@ ps1Prompt()
 	if [[ $_COUNT -ne 0 ]]; then
 		#
 		write '  '
-		startFG 70 230 255
+		startFG 70 255 200
 		write "`find -maxdepth 1 -mindepth 1 -type d | wc -l`"
 		startFG 180 255 0
 		#startBold
 		write ' ⧜ '
 		ansiReset
-		startFG 70 255 190
+		startFG 70 230 255
 		write "`find -maxdepth 1 -mindepth 1 -type f | wc -l`"
 		ansiReset
 	fi
