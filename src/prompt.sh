@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/  https://github.com/kekse1/prompt/
-# v2.10.3
+# v2.11.0
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -30,6 +30,7 @@ _SUCCESS=0
 _SPACE=1
 _NEWLINE=1
 _LINK=1
+_CHANGE=1
 
 #
 _list()
@@ -245,6 +246,15 @@ ps1Prompt()
 		startFG 255 210 0
 		startBold
 		write ' ⧜ '
+		ansiReset
+		write ' '
+	fi
+
+	if [[ $_CHANGE -ne 0 && "`cwd`" != "$_last_directory" ]]; then
+		startBG 220 180 10
+		startFG 10 20 30
+		#startBold
+		write ' ᱙ '
 		ansiReset
 		write ' '
 	fi

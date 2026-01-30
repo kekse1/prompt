@@ -6,7 +6,7 @@
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically
 creates the **`$PS1` prompt**.
 
-* [Version v**2.10.3**](src/prompt.sh) (updated **2026-01-08**)
+* [Version v**2.11.0**](src/prompt.sh) (updated **2026-01-30**)
 
 <br>
 
@@ -14,6 +14,7 @@ creates the **`$PS1` prompt**.
 
 <br>
 
+* \[**2026-01-30**\] New [setting](#configuration) **`$_CHANGE`**, v**2.11.0**;
 * \[**2026-01-08**\] Tiny color (and space) change, plus divided the load average; v**2.10.3**.
 * \[**2026-01-07**\] BIG design improvements; plus the new **`$_LINK`** [setting](#configuration); v**2.10.0**.
 * \[**2025-12-05**\] Update: now w/ `$_NEWLINE` setting, in v**2.9.6**;
@@ -21,7 +22,7 @@ creates the **`$PS1` prompt**.
 <br><br>
 
 ## Screenshot
-Example; (`$TERM` == `xterm-256color`);
+Example; (`$TERM` == `xterm-256color`); .. it's **not** the newest version.
 
 ![xterm-256color](./img/example.png)
 
@@ -64,6 +65,7 @@ into your environments where you include this script).
 | **`$_DATE_FORMAT_TWO`** | String  | `%j`       | Second `date` format; by default the number of current days in the year                                                        |
 | **`$_NEWLINE`**         | Boolean | 1          | Start the prompt output with an empty line                                                                                     |
 | **`$_LINK`**            | Boolean | 1          | Displays a warning symbol when your current working directory path is only a symbolic link (rather the `realpath` one)         |
+| **`$_CHANGE`**          | Boolean | 1          | A symbol when `cwd` changed (or it's symlink points to another location |
 
 The `Boolean` types are just `Integer` values with either `0` as `false` or `1` as `true`.
 
