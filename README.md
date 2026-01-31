@@ -14,6 +14,7 @@ creates the **`$PS1` prompt**.
 
 <br>
 
+* \[**2026-01-31**\] **`$_LIST`** default changed to (**0**); ...
 * \[**2026-01-30**\] New [setting](#configuration) **`$_CHANGE`**, v**2.11.0**;
 * \[**2026-01-08**\] Tiny color (and space) change, plus divided the load average; v**2.10.3**.
 * \[**2026-01-07**\] BIG design improvements; plus the new **`$_LINK`** [setting](#configuration); v**2.10.0**.
@@ -50,7 +51,7 @@ into your environments where you include this script).
 | **`$_SPACE`**           | Boolean | 1          | Spaces between the blocks?                                                                                                     |
 | **`$_CODE`**            | Boolean | 1          | Instead of indicating errors (return values != 0) with an ✘, the real error code is being displayed.                           |
 | **`$_TTY`**             | Boolean | 1          | Includes the currently used **tty** in it's output                                                                             |
-| **`$_LIST`**            | Boolean | 1          | When directory changes(!), you'll get to see it's contents.                                                                    |
+| **`$_LIST`**            | Boolean | 0          | When directory changes(!), you'll get to see it's contents.                                                                    |
 | **`$_TERMUX`**          | Boolean | 0          | Will enforce some settings to fit better to the [`Termux` Linux](https://termux.dev/) (for Android phones)                     |
 | **`$_ANSI`**            | Boolean | 1          | Here you could also disable all ANSI Escape Sequences (for colors and styles)                                                  |
 | **`$_MULTI_LINE`**      | Boolean | 1          | Looks better when using a two line prompt                                                                                      |
