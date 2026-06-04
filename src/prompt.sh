@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/  https://github.com/kekse1/prompt/
-# v2.11.0
+# v2.11.1
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -31,6 +31,8 @@ _SPACE=1
 _NEWLINE=1
 _LINK=1
 _CHANGE=1
+#_SLASH=" ❯ " # buggy?? todo..
+_SLASH=""
 
 #
 _list()
@@ -237,7 +239,12 @@ ps1Prompt()
 	[[ $_SPACE -eq 0 ]] || write ' '
 	startBG 95 160 205
 	startFG 0 0 0
-	write " $(getBase $_DEPTH "`pwd`") "
+	local path="$(getBase $_DEPTH "`pwd`")"
+	if [[ -n "$_SLASH" ]]; then
+		local slash="$(echo -en "\033[39m${_SLASH}\033[38;2;0;0;0m")"
+		path="${path//\//${slash}}"
+	fi
+	write " ${path} "
 	ansiReset
 	write ' '
 	
