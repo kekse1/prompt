@@ -6,7 +6,7 @@
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically
 creates the **`$PS1` prompt**.
 
-* [Version v**2.11.1**](src/prompt.sh) (updated **2026-06-04**)
+* [Version v**2.11.2**](src/prompt.sh) (updated **2026-06-05**)
 
 <br>
 
@@ -14,7 +14,7 @@ creates the **`$PS1` prompt**.
 
 <br>
 
-* \[**2026-06-04**\] Testing **`$_SLASH`** - maybe buggy?? v**2.11.1**;
+* \[**2026-06-04**\] With **`$_SLASH`** configuration now, for better optics.. v**2.11.2**;
 * \[**2026-01-31**\] **`$_LIST`** default changed to (**0**); ...
 * \[**2026-01-30**\] New [setting](#configuration) **`$_CHANGE`**, v**2.11.0**;
 * \[**2026-01-08**\] Tiny color (and space) change, plus divided the load average; v**2.10.3**.
@@ -25,6 +25,9 @@ creates the **`$PS1` prompt**.
 
 ## Screenshot
 Example; (`$TERM` == `xterm-256color`); .. it's **not** the newest version.
+
+The newest version (atm. v**2.11.2**) does also (optionally) colorize the path separators `/`,
+and it can (optionally) also be replaced by e.g. ` ❯ ` (the default now).
 
 ![xterm-256color](./img/example.png)
 
@@ -68,6 +71,7 @@ into your environments where you include this script).
 | **`$_NEWLINE`**         | Boolean | 1          | Start the prompt output with an empty line                                                                                     |
 | **`$_LINK`**            | Boolean | 1          | Displays a warning symbol when your current working directory path is only a symbolic link (rather the `realpath` one)         |
 | **`$_CHANGE`**          | Boolean | 1          | A symbol when `cwd` changed (or it's symlink points to another location) |
+| **`$_SLASH`**           | String  | ` ❯ `      | Optional string to colorize and replace the path separators `/`. The pure `/` would be cause only white color, empty means doing nothing here.|
 
 The `Boolean` types are just `Integer` values with either `0` as `false` or `1` as `true`.
 
