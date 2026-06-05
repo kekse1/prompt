@@ -31,9 +31,9 @@ _SPACE=1
 _NEWLINE=1
 _LINK=1
 _CHANGE=1
-_SLASH=" ❯ "
+#_SLASH=" ❯ " # caused bugs!
 #_SLASH="/"
-#_SLASH=""
+_SLASH=""
 
 #
 _list()
