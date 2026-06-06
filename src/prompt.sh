@@ -243,7 +243,7 @@ ps1Prompt()
 	local path="$(getBase $_DEPTH "`pwd`")"
 	if [[ -n "$_SLASH" ]]; then
 		local slash='\[\033[39m'"$_SLASH"'\[\033[38;2;0;0;0m\]'
-		path="${path//\//${slash}}"
+		path="${path//\//${slash}}${_SLASH% }"
 	fi
 	write " ${path} "
 	ansiReset
