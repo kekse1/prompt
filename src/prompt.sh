@@ -240,12 +240,15 @@ ps1Prompt()
 	[[ $_SPACE -eq 0 ]] || write ' '
 	startBG 95 160 205
 	startFG 0 0 0
-	local path="$(getBase $_DEPTH "`pwd`")"
+	local _pwd="`pwd`"
+	local path="$(getBase $_DEPTH "$_pwd")"
 	if [[ -n "$_SLASH" ]]; then
 		local slash='\[\033[39m'"$_SLASH"'\[\033[38;2;0;0;0m\]'
 
-		if [[ "`pwd`" == "/" ]]; then
-			path="$slash"
+		if [[ "$_pwd" == "/" ]]; then
+			path="${slash// /}"
+		elif [[ -n "$HOME" && "$_pwd" == "$HOME" ]]; then
+			path="${slash//$_SLASH/\~}"
 		else
 			path="${path//\//${slash}}" #${_SLASH% }"
 			slash="${slash//$_SLASH/${_SLASH% }}"
