@@ -24,14 +24,11 @@ creates the **`$PS1` prompt**.
 <br><br>
 
 ## Screenshot
-Example; (`$TERM` == `xterm-256color`); .. it's **not** the newest version.
+This is the **newest** screenshot (v**2.12.0**). **Click on it to open the full size view**.
 
-The newest v**2.12.0** finished the new **`$_SLASH`** feature. It's no longer
-buggy now (**2026-06-07**) and looks great!
-
-So my **TODO** now: just make a new screenshot here (or two)!
-
-![xterm-256color](./img/example.png)
+<a href="./img/screenshot.original.jpg">
+	<img alt="Example Screenshot; v2.12.0." src="./img/screenshot.jpg" />
+</a>
 
 <br><br>
 
