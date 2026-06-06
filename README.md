@@ -14,6 +14,7 @@ creates the **`$PS1` prompt**.
 
 <br>
 
+* \[**2026-06-07**\] Tiny fix: the new path colorization feature now also ends with the path separator. Looks better! v**2.12.1**;
 * \[**2026-06-07**\] Finished the new **`$_SLASH`** option! No longer buggy, so enabled by default! v**2.12.0**;
 * \[**2026-01-31**\] **`$_LIST`** default changed to (**0**); ...
 * \[**2026-01-30**\] New [setting](#configuration) **`$_CHANGE`**, v**2.11.0**;
@@ -24,7 +25,9 @@ creates the **`$PS1` prompt**.
 <br><br>
 
 ## Screenshot
-This is the **newest** screenshot (v**2.12.0**). **Click on it to open the full size view**.
+This is the **almost** latest screenshot (v**2.12.0**). **Click on it to open the full size view**.
+The really newest (v**2.12.1**) also appends your (own) path separator at the end of the path.
+Really looks better that way!
 
 <a href="./img/screenshot.original.jpg">
 	<img alt="Example Screenshot; v2.12.0." src="./img/screenshot.jpg" />

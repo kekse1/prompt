@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/  https://github.com/kekse1/prompt/
-# v2.12.1
+# v2.12.0
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -243,14 +243,7 @@ ps1Prompt()
 	local path="$(getBase $_DEPTH "`pwd`")"
 	if [[ -n "$_SLASH" ]]; then
 		local slash='\[\033[39m'"$_SLASH"'\[\033[38;2;0;0;0m\]'
-
-		if [[ "`pwd`" == "/" ]]; then
-			path="$slash"
-		else
-			path="${path//\//${slash}}" #${_SLASH% }"
-			slash="${slash//$_SLASH/${_SLASH% }}"
-			path="${path}${slash}"
-		fi
+		path="${path//\//${slash}}${_SLASH% }"
 	fi
 	write " ${path} "
 	ansiReset
