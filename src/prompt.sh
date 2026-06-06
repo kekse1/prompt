@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/  https://github.com/kekse1/prompt/
-# v2.11.2
+# v2.12.0
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -31,9 +31,9 @@ _SPACE=1
 _NEWLINE=1
 _LINK=1
 _CHANGE=1
-#_SLASH=" ❯ " # caused bugs!
+_SLASH=" ❯ "
 #_SLASH="/"
-_SLASH=""
+#_SLASH=""
 
 #
 _list()
@@ -52,7 +52,6 @@ if [[ $_TERMUX -ne 0 ]]; then
 	_LOAD=0
 	#_COUNT=0
 	_TTY=0
-	_SLASH="" # i had problems w/ it on termux..
 fi
 
 #
@@ -79,7 +78,7 @@ ps1Prompt()
 
 	ansiReset()
 	{
-		[[ $_ANSI -ne 0 ]] && PS1="$PS1"'\[\033[m\]'
+		[[ $_ANSI -ne 0 ]] && PS1="$PS1"'\[\033[0m\]'
 	}
 
 	write()
@@ -243,7 +242,7 @@ ps1Prompt()
 	startFG 0 0 0
 	local path="$(getBase $_DEPTH "`pwd`")"
 	if [[ -n "$_SLASH" ]]; then
-		local slash="\033[39m${_SLASH}\033[38;2;0;0;0m";
+		local slash='\[\033[39m'"$_SLASH"'\[\033[38;2;0;0;0m\]'
 		path="${path//\//${slash}}"
 	fi
 	write " ${path} "
