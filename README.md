@@ -6,7 +6,7 @@
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically
 creates the **`$PS1` prompt**.
 
-* [Version v**2.12.0**](src/prompt.sh) (updated **2026-06-07**)
+* [Version v**2.12.2**](src/prompt.sh) (updated **2026-06-07**)
 
 <br>
 
@@ -14,6 +14,7 @@ creates the **`$PS1` prompt**.
 
 <br>
 
+* \[**2026-06-07**\] New configuration variable **`$_LAST`**; really tiny, but it matters (at least for me); v**2.12.2**.
 * \[**2026-06-07**\] Two tiny fixes/updates; looks really better now! v**2.12.1**;
 * \[**2026-06-07**\] Finished the new **`$_SLASH`** option! No longer buggy, so enabled by default! v**2.12.0**;
 * \[**2026-01-31**\] **`$_LIST`** default changed to (**0**); ...
@@ -72,7 +73,8 @@ into your environments where you include this script).
 | **`$_NEWLINE`**         | Boolean | 1          | Start the prompt output with an empty line                                                                                     |
 | **`$_LINK`**            | Boolean | 1          | Displays a warning symbol when your current working directory path is only a symbolic link (rather the `realpath` one)         |
 | **`$_CHANGE`**          | Boolean | 1          | A symbol when `cwd` changed (or it's symlink points to another location) |
-| **`$_SLASH`**           | String  | ` ❯ `    | Optional string to colorize and replace the path separators `/`. The pure `/` would be cause only white color, empty means doing nothing here.|
+| **`$_SLASH`**           | String  | ` ❯ `      | Optional string to colorize and replace the path separators `/`. The pure `/` would be cause only white color, empty means doing nothing here.|
+| **`$_LAST`**            | Boolean | 1          | **IF** you've configured **`$_SLASH`**, should the last path separator also be colorized (white) or not!?                      |
 
 The `Boolean` types are just `Integer` values with either `0` as `false` or `1` as `true`.
 

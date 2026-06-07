@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/  https://github.com/kekse1/prompt/
-# v2.12.1
+# v2.12.2
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -34,6 +34,7 @@ _CHANGE=1
 _SLASH=" ❯ "
 #_SLASH="/"
 #_SLASH=""
+_LAST=1
 
 #
 _list()
@@ -250,8 +251,14 @@ ps1Prompt()
 		elif [[ -n "$HOME" && "$_pwd" == "$HOME" ]]; then
 			path="${slash//$_SLASH/\~}"
 		else
-			path="${path//\//${slash}}" #${_SLASH% }"
-			slash="${slash//$_SLASH/${_SLASH% }}"
+			path="${path//\//${slash}}"
+
+			if [[ $_LAST -eq 0 ]]; then
+				slash="${_SLASH% }"
+			else
+				slash="${slash//$_SLASH/${_SLASH% }}"
+			fi
+
 			path="${path}${slash}"
 		fi
 	fi
