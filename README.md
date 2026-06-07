@@ -27,11 +27,11 @@ creates the **`$PS1` prompt**.
 <br><br>
 
 ## Screenshot
-This is the **almost** latest screenshot (v**2.12.0**). **Click on it to open the full size view**.
-The really newest version(s) looks much better now, btw.
+This is the **latest** screenshot (v**2.12.3**).
+**Click on it to open the full size view**.
 
-<a href="./img/screenshot.original.jpg">
-	<img alt="Example Screenshot; v2.12.0." src="./img/screenshot.jpg" />
+<a href="./img/example.full.png">
+	<img alt="Example Screenshot; v2.12.3." src="./img/example.full.jpg" />
 </a>
 
 <br><br>
