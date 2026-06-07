@@ -30,9 +30,7 @@ creates the **`$PS1` prompt**.
 This is the **latest** screenshot (v**2.12.3**).
 **Click on it to open the full size view**.
 
-<a href="./img/example.full.png">
 	<img alt="Example Screenshot; v2.12.3." src="./img/example.full.jpg" />
-</a>
 
 <br><br>
 
