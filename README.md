@@ -14,6 +14,7 @@ creates the **`$PS1` prompt**.
 
 <br>
 
+* \[**2026-06-07**\] FYI: I'm also working on another next version (these days). Stay tuned..
 * \[**2026-06-07**\] New configuration variable **`$_LAST`**; really tiny, but it matters (at least for me); v**2.12.2**.
 * \[**2026-06-07**\] Two tiny fixes/updates; looks really better now! v**2.12.1**;
 * \[**2026-06-07**\] Finished the new **`$_SLASH`** option! No longer buggy, so enabled by default! v**2.12.0**;
@@ -62,7 +63,7 @@ into your environments where you include this script).
 | **`$_ANSI`**            | Boolean | 1          | Here you could also disable all ANSI Escape Sequences (for colors and styles)                                                  |
 | **`$_MULTI_LINE`**      | Boolean | 1          | Looks better when using a two line prompt                                                                                      |
 | **`$_DEPTH`**           | Integer | 4          | The amount of directories to show in your current working directory.. see the [`getBase()`](#getbase) section                  |
-| **`$_REST_STRING`**     | String  | `...`      | Also for the [`getBase()`](#getbase) function: the cut off parts of your current working directory are replaced by this string |
+| **`$_REST`**            | String  | `...`      | Also for the [`getBase()`](#getbase) function: the cut off parts of your current working directory are replaced by this string |
 | **`$_COUNT`**           | Boolean | 1          | Will also show the amount of directories and regular files in the current working directory                                    |
 | **`$_HOSTNAME`**        | Boolean | 1          | Also show your machine's hostname (if set, directly at the username)                                                           |
 | **`$_USERNAME`**        | Boolean | 1          | Would also include your username in the output (if set, directly at the hostname)                                              |
@@ -87,7 +88,7 @@ It's also using **ANSI Escape Sequences** to colorize up the prompt (if you don'
 
 #### `getBase()`
 It also has a `getBase()` function to reduce the amount of slash `/` separators in the directory depth..
-with a bit of intelligence. See also the [configuration](#configuration) variables [ `$_SLASHES`, `$_REST_STRING` ];
+with a bit of intelligence. See also the [configuration](#configuration) variables [ `$_SLASHES`, `$_REST` ];
 
 
 #### `cwd()`
