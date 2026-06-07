@@ -85,16 +85,16 @@ The `Boolean` types are just `Integer` values with either `0` as `false` or `1` 
 It's also using **ANSI Escape Sequences** to colorize up the prompt (if you don't disable it via `$_ANSI`
 [configuration](#configuration) variable).
 
-> [!NOTE]
-> # NOTIZ: wichtig hier war vor allem die richtige Anwendung
-> # der ANSI Escape Sequenzen.. in dem Sinne, dass wir fuer
-> # einen `$PS1` noch die beiden Strings `\[` und `\]` mit
-> # anwenden.. sie signalisieren der Bash, dass alle Strings
-> # dazwischen *keine* *visuelle* Breite haben!
-> #
-> # Wird das nicht richtig gemacht, so entstehen Artefakte
-> # und sonstige Glitches! Bitte niemals hier vergessen! Thx. ^_^
-> #`
+```# NOTIZ: wichtig hier war vor allem die richtige Anwendung
+# der ANSI Escape Sequenzen.. in dem Sinne, dass wir fuer
+# einen `$PS1` noch die beiden Strings `\[` und `\]` mit
+# anwenden.. sie signalisieren der Bash, dass alle Strings
+# dazwischen *keine* *visuelle* Breite haben!
+#
+# Wird das nicht richtig gemacht, so entstehen Artefakte
+# und sonstige Glitches! Bitte niemals hier vergessen! Thx. ^_^
+#
+```
 
 ... in dem Sinne sind jetzt alle Fehler gefixt, denke ich.
 
