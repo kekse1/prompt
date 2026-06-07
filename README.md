@@ -46,11 +46,15 @@ when spawning a new shell etc. (via `source` or `.`).
 The configuration is located on top of the file (as simple variables, which will be enforced
 into your environments where you include this script).
 
+<br>
+
 > [!TIP]
 > If you want to test them, or just change the config during usage, you can easily
 > **change the variables in your console**! Example given: `_LIST=0` will
 > **temporarily** disable the directory listings. After/with the next login
 > the values will be the original ones, right as defined in the script/file.
+
+<br><br>
 
 | Variable name           | Type    | Default    | Description                                                                                                                    |
 | ----------------------: | ------: | :--------- | :----------------------------------------------------------------------------------------------------------------------------- |
