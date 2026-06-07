@@ -252,7 +252,7 @@ ps1Prompt()
 	startFG 0 0 0
 	local _pwd="`pwd`"
 	local path="$(getBase $_DEPTH "$_pwd")"
-	if [[ -n "$_SLASH" ]]; then
+	if [[ -n "$_SLASH" && $_ANSI -ne 0 ]]; then
 		local slash='\[\033[39m\]'"$_SLASH"'\[\033[38;2;0;0;0m\]'
 
 		if [[ "$_pwd" == "/" ]]; then
