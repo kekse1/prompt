@@ -6,7 +6,7 @@
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically
 creates the **`$PS1` prompt**.
 
-* [Version v**2.12.2**](src/prompt.sh) (updated **2026-06-07**)
+* [Version v**2.12.3**](src/prompt.sh) (updated **2026-06-07**)
 
 <br>
 
@@ -14,6 +14,7 @@ creates the **`$PS1` prompt**.
 
 <br>
 
+* \[**2026-06-07**\] Fixed all the ANSI color glitches/artefacts.. see [Details](#details); v**2.12.3**!
 * \[**2026-06-07**\] New configuration variable **`$_LAST`**; really tiny, but it matters (at least for me); v**2.12.2**.
 * \[**2026-06-07**\] Two tiny fixes/updates; looks really better now! v**2.12.1**;
 * \[**2026-06-07**\] Finished the new **`$_SLASH`** option! No longer buggy, so enabled by default! v**2.12.0**;
@@ -27,7 +28,7 @@ creates the **`$PS1` prompt**.
 
 ## Screenshot
 This is the **almost** latest screenshot (v**2.12.0**). **Click on it to open the full size view**.
-The really newest version (v**2.12.1**) looks much better, btw.
+The really newest version(s) looks much better now, btw.
 
 <a href="./img/screenshot.original.jpg">
 	<img alt="Example Screenshot; v2.12.0." src="./img/screenshot.jpg" />
@@ -84,10 +85,22 @@ The `Boolean` types are just `Integer` values with either `0` as `false` or `1` 
 It's also using **ANSI Escape Sequences** to colorize up the prompt (if you don't disable it via `$_ANSI`
 [configuration](#configuration) variable).
 
+> [!NOTE]
+> `# NOTIZ: wichtig hier war vor allem die richtige Anwendung`
+> `# der ANSI Escape Sequenzen.. in dem Sinne, dass wir fuer`
+> `# einen `$PS1` noch die beiden Strings `\[` und `\]` mit`
+> `# anwenden.. sie signalisieren der Bash, dass alle Strings`
+> `# dazwischen *keine* *visuelle* Breite haben!`
+> `#`
+> `# Wird das nicht richtig gemacht, so entstehen Artefakte`
+> `# und sonstige Glitches! Bitte niemals hier vergessen! Thx. ^_^`
+> `#`
+
+... in dem Sinne sind jetzt alle Fehler gefixt, denke ich.
 
 #### `getBase()`
 It also has a `getBase()` function to reduce the amount of slash `/` separators in the directory depth..
-with a bit of intelligence. See also the [configuration](#configuration) variables [ `$_SLASHES`, `$_REST` ];
+with a bit of intelligence. See also the [configuration](#configuration) variables [ `$_DEPTH`, `$_REST` ];
 
 
 #### `cwd()`

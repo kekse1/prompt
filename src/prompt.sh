@@ -1,10 +1,21 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/  https://github.com/kekse1/prompt/
-# v2.12.2
+# v2.12.3
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
+
+#
+# NOTIZ: wichtig hier war vor allem die richtige Anwendung
+# der ANSI Escape Sequenzen.. in dem Sinne, dass wir fuer
+# einen `$PS1` noch die beiden Strings `\[` und `\]` mit
+# anwenden.. sie signalisieren der Bash, dass alle Strings
+# dazwischen *keine* *visuelle* Breite haben!
+#
+# Wird das nicht richtig gemacht, so entstehen Artefakte
+# und sonstige Glitches! Bitte niemals hier vergessen! Thx. ^_^
+#
 
 #
 # you can set this variables directly in the shell (while
@@ -15,7 +26,7 @@ _TERMUX=0
 _ANSI=1
 _MULTI_LINE=1
 _DEPTH=4
-_REST_STRING="..."
+_REST='...'
 _COUNT=1
 _HOSTNAME=1
 _USERNAME=1
@@ -31,17 +42,15 @@ _SPACE=1
 _NEWLINE=1
 _LINK=1
 _CHANGE=1
-_SLASH=" ❯ "
-#_SLASH="/"
-#_SLASH=""
+_SLASH=' ❯ ' # maybe '/' or '' (empty) at all?
 _LAST=0
 
 #
 _list()
 {
-	local _color="yes"; [[ $_ANSI -eq 0 ]] && _color="no"
+	local _color='yes'; [[ $_ANSI -eq 0 ]] && _color="no"
 	local data="$(\ls -C --group-directories-first --color=${_color})"
-	[[ ${#data} -gt 0 ]] && echo -e "\n${data}\n"
+	[[ ${#data} -gt 0 ]] && echo -e '\n${data}\n'
 }
 
 #
@@ -195,7 +204,7 @@ ps1Prompt()
 	fi
 
 	#
-	[[ $_MULTI_LINE -ne 0 ]] && write "\n  "
+	[[ $_MULTI_LINE -ne 0 ]] && write '\n  '
 	
 	#
 	local didResult=0
@@ -244,7 +253,7 @@ ps1Prompt()
 	local _pwd="`pwd`"
 	local path="$(getBase $_DEPTH "$_pwd")"
 	if [[ -n "$_SLASH" ]]; then
-		local slash='\[\033[39m'"$_SLASH"'\[\033[38;2;0;0;0m\]'
+		local slash='\[\033[39m\]'"$_SLASH"'\[\033[38;2;0;0;0m\]'
 
 		if [[ "$_pwd" == "/" ]]; then
 			path="${slash// /}"
@@ -344,7 +353,7 @@ getBase()
 				if [[ $inHome -ne 0 ]]; then
 					res="~${res}"
 				elif [[ $i -gt 0 ]]; then
-					res="${_REST_STRING}${res}"
+					res="${_REST}${res}"
 				fi
 				break
 			fi
