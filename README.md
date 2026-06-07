@@ -14,7 +14,6 @@ creates the **`$PS1` prompt**.
 
 <br>
 
-* \[**2026-06-07**\] FYI: I'm also working on another next version (these days). Stay tuned..
 * \[**2026-06-07**\] New configuration variable **`$_LAST`**; really tiny, but it matters (at least for me); v**2.12.2**.
 * \[**2026-06-07**\] Two tiny fixes/updates; looks really better now! v**2.12.1**;
 * \[**2026-06-07**\] Finished the new **`$_SLASH`** option! No longer buggy, so enabled by default! v**2.12.0**;
