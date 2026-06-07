@@ -98,10 +98,13 @@ It's also using **ANSI Escape Sequences** to colorize up the prompt (if you don'
 
 ... in dem Sinne sind jetzt alle Fehler gefixt, denke ich.
 
+<br><br>
+
 #### `getBase()`
 It also has a `getBase()` function to reduce the amount of slash `/` separators in the directory depth..
 with a bit of intelligence. See also the [configuration](#configuration) variables [ `$_DEPTH`, `$_REST` ];
 
+<br>
 
 #### `cwd()`
 Query for the `$PWD`/`pwd` with resolving it's `realpath`.
