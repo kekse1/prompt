@@ -74,7 +74,7 @@ into your environments where you include this script).
 | **`$_LINK`**            | Boolean | 1          | Displays a warning symbol when your current working directory path is only a symbolic link (rather the `realpath` one)         |
 | **`$_CHANGE`**          | Boolean | 1          | A symbol when `cwd` changed (or it's symlink points to another location) |
 | **`$_SLASH`**           | String  | ` ❯ `      | Optional string to colorize and replace the path separators `/`. The pure `/` would be cause only white color, empty means doing nothing here.|
-| **`$_LAST`**            | Boolean | 1          | **IF** you've configured **`$_SLASH`**, should the last path separator also be colorized (white) or not!?                      |
+| **`$_LAST`**            | Boolean | 0          | **IF** you've configured **`$_SLASH`**, should the last path separator also be colorized (white) or not!?                      |
 
 The `Boolean` types are just `Integer` values with either `0` as `false` or `1` as `true`.
 

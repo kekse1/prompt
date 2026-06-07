@@ -34,7 +34,7 @@ _CHANGE=1
 _SLASH=" ❯ "
 #_SLASH="/"
 #_SLASH=""
-_LAST=1
+_LAST=0
 
 #
 _list()
