@@ -6,7 +6,7 @@
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically
 creates the **`$PS1` prompt**.
 
-* [Version v**2.12.3**](src/prompt.sh) (updated **2026-06-07**)
+* [Version v**2.12.4**](src/prompt.sh) (updated **2026-06-17**)
 
 <br>
 
@@ -14,6 +14,7 @@ creates the **`$PS1` prompt**.
 
 <br>
 
+* \[**2026-06-17**\] Really tiny design update.. v**2.12.4**;
 * \[**2026-06-07**\] Fixed all the ANSI color glitches/artefacts.. see [Details](#details); v**2.12.3**!
 * \[**2026-06-07**\] New configuration variable **`$_LAST`**; really tiny, but it matters (at least for me); v**2.12.2**.
 * \[**2026-06-07**\] Two tiny fixes/updates; looks really better now! v**2.12.1**;
@@ -27,7 +28,7 @@ creates the **`$PS1` prompt**.
 <br><br>
 
 ## Screenshot
-This is the **latest** screenshot (v**2.12.3**).
+This is **nearly** the latest screenshot (v**2.12.3**).
 **Click on it to open the full size view**.
 
 <a href="./img/example.full.png">

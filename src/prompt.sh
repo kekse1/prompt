@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/  https://github.com/kekse1/prompt/
-# v2.12.3
+# v2.12.4
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -178,7 +178,8 @@ ps1Prompt()
 		startFG 150 220 0
 		write "`date +"$_DATE_FORMAT_ONE"`"
 		if [[ -n "$_DATE_FORMAT_TWO" ]]; then
-			startFG 210 140 10
+			#startFG 210 140 10
+			startFG 240 245 255
 			write '/'
 			startFG 255 180 0
 			write "`date +"$_DATE_FORMAT_TWO"`"
