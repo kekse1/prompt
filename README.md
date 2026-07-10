@@ -1,10 +1,10 @@
 <img src="https://kekse.biz/github.php?draw&override=github:prompt" />
 
-<br>
-
 # My notorious **`$PS1`** prompt
 By using the **`$PROMPT_COMMAND`** variable, this script dynamically
 creates the **`$PS1` prompt**.
+
+<br>
 
 * [Version v**2.12.4**](src/prompt.sh) (updated **2026-06-17**)
 
@@ -12,7 +12,7 @@ creates the **`$PS1` prompt**.
 
 ![kinda logo](img/ps1.png)
 
-<br>
+<br><br>
 
 * \[**2026-06-17**\] Really tiny design update.. v**2.12.4**;
 * \[**2026-06-07**\] Fixed all the ANSI color glitches/artefacts.. see [Details](#details); v**2.12.3**!
@@ -117,10 +117,12 @@ Query for the `$PWD`/`pwd` with resolving it's `realpath`.
 This is for the `$_LINK` symbol which appears when you are inside a directory
 whose path is a symbolic link, not the real one (see `man 1 realpath`).
 
-<br><br>
+<br><br><br>
 
 # Contact
 <img src="https://kekse.biz/github.php?override=github:prompt&draw&text=prompt@kekse.biz&angle=6&size=38pt&fg=150,20,90&font=OpenSans&ro&readonly&h=64&v=16" />
+
+<br>
 
 # Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
